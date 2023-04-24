@@ -2,58 +2,102 @@ import { ThemeProvider as StyledComponentsThemeProvider } from 'styled-component
 const theme = {
   palette: {
     default: {
-      dark: 'rgb(204, 204, 204)',
-      main: 'rgb(237, 237, 237)',
-      light: 'rgb(250, 250, 250)',
+      dark: '#242739',
+      main: '#1D1E2B',
+      light: '#FFFFFF',
     },
     primary: {
-      dark: 'rgb(0, 148, 126)',
-      main: 'rgb(0, 209, 178)',
-      light: 'rgb(235, 255, 252)',
+      dark: '#8FEFA1',
+      main: '#8FE1A1',
     },
     secondary: {
-      dark: 'rgb(41, 111, 168)',
-      main: 'rgb(219, 219, 219)',
-      light: 'rgb(239, 245, 251)',
+      main: '#534581',
+      light: '#635299',
     },
-    link: {
-      dark: 'rgb(56, 80, 183)',
-      main: 'rgb(72, 95, 199)',
-      light: 'rgb(239, 241, 250)',
-    },
-    info: {
-      dark: 'rgb(41, 111, 168)',
-      main: 'rgb(62, 142, 208)',
-      light: 'rgb(239, 245, 251)',
-    },
-    success: {
-      dark: 'rgb(37, 121, 83)',
-      main: 'rgb(72, 199, 142)',
-      light: 'rgb(239, 250, 245)',
-    },
-    warning: {
-      dark: 'rgb(148, 108, 0)',
-      main: 'rgb(255, 224, 138)',
-      light: 'rgb(254, 236, 240)',
+    background: {
+      dark: '#141429',
+      light: '#DCDFE9',
     },
     danger: {
-      dark: 'rgb(204, 15, 53)',
-      main: 'rgb(241, 70, 104)',
-      light: 'rgb(254, 236, 240)',
+      main: '#CF484B',
+      light: '#D96D6F',
     },
-    dark: {
-      main: 'rgb(54, 54, 54)',
-    },
-    light: {
-      main: 'rgb(255, 255, 255)',
-    },
-    accent: {
-      main: 'rgb(245, 245, 245)',
+    success: {
+      main: '#38C0A8',
+      light: '#71D6C4',
     },
     overlay: {
       light: 'rgba(0, 0, 0, 0.15)',
       main: 'rgba(0, 0, 0, 0.3)',
       dark: 'rgba(0, 0, 0, 0.6)',
+    },
+  },
+  typography: {
+    h1Mobile: {
+      fontSize: '36px',
+      lineHeight: '36px',
+      letterSpacing: '-2%',
+    },
+    h1Tablet: {
+      fontSize: '48px',
+      lineHeight: '48px',
+      letterSpacing: '-2%',
+    },
+    h1Desktop: {
+      fontSize: '58px',
+      lineHeight: '58px',
+      letterSpacing: '-2%',
+    },
+    h2Mobile: {
+      fontSize: '28px',
+      lineHeight: '28px',
+      letterSpacing: '-2%',
+    },
+    h2Tablet: {
+      fontSize: '36px',
+      lineHeight: '36px',
+      letterSpacing: '-2%',
+    },
+    h2Desktop: {
+      fontSize: '40px',
+      lineHeight: '40px',
+      letterSpacing: '-2%',
+    },
+    h3Mobile: {
+      fontSize: '24px',
+      lineHeight: '24px',
+      letterSpacing: '-1%',
+    },
+    h3Tablet: {
+      fontSize: '28px',
+      lineHeight: '28px',
+      letterSpacing: '-1%',
+    },
+    h3Desktop: {
+      fontSize: '36px',
+      lineHeight: '36px',
+      letterSpacing: '-1%',
+    },
+    h4Mobile: {
+      fontSize: '18px',
+      lineHeight: '22px',
+    },
+    h4Tablet: {
+      fontSize: '24px',
+      lineHeight: '28px',
+    },
+    h4Desktop: {
+      fontSize: '24px',
+      lineHeight: '28px',
+    },
+    body: {
+      fontSize: '16px',
+      lineHeight: '22.4px',
+      letterSpacing: '1%',
+    },
+    legal: {
+      fontSize: '12px',
+      lineHeight: '16.8px',
     },
   },
 };
