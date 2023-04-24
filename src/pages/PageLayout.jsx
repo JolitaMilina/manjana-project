@@ -1,5 +1,6 @@
-import { Outlet, Link } from 'react-router-dom';
-import { Suspense } from 'react';
+import { Outlet, Link } from "react-router-dom";
+import { Suspense } from "react";
+import Footer from "./Footer/Footer";
 
 const PageLayout = () => {
   return (
@@ -10,7 +11,9 @@ const PageLayout = () => {
           <Outlet />
         </Suspense>
       </main>
-      <footer></footer>
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 };
