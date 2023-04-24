@@ -1,19 +1,18 @@
 import { Outlet, Link } from "react-router-dom";
 import { Suspense } from "react";
-import Footer from "./Footer/Footer";
+import Header from "./LayoutComponents/Header"
+import Footer from "./LayoutComponents/Footer";
 
 const PageLayout = () => {
   return (
     <>
-      <header></header>
+      <Header />
       <main>
         <Suspense fallback={<></>}>
           <Outlet />
         </Suspense>
       </main>
-      <footer>
-        <Footer />
-      </footer>
+      <Footer />
     </>
   );
 };

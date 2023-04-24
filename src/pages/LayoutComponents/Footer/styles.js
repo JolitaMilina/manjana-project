@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledFooter = styled.div`
+export const StyledFooter = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,7 +13,7 @@ export const StyledFooter = styled.div`
   p {
     color: ${(props) => props.theme.palette.background.light};
     text-align: center;
-    weight: ${(props) => props.theme.typography.legal};
+    font-weight: ${(props) => props.theme.typography.legal};
     size: ${(props) => props.theme.typography.legal};
   }
 `;
