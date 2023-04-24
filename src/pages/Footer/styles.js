@@ -7,6 +7,8 @@ export const StyledFooter = styled.div`
   width: 100%;
   background-color: ${(props) => props.theme.palette.default.main};
   height: 3.5rem;
+  position: fixed;
+  bottom: 0;
 
   p {
     color: ${(props) => props.theme.palette.background.light};
