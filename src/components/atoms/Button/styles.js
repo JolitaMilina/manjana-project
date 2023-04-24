@@ -1,44 +1,46 @@
 import styled from 'styled-components';
 
 export const StyledButton = styled.button`
-  width: ${(props) => (props.fullWidth ? '100%' : 'initial')};
+  padding: ${(props) => (props.size === 'large' ? '9px 20px' : '7px 16px')};
 
   border-width: 1px;
   border-style: solid;
   border-color: ${(props) =>
-    props.color
-      ? props.theme.palette[props.color].main
-      : props.theme.palette.default.main};
+    props.outline === 'outline'
+      ? props.theme.palette.secondary.main
+      : 'transparent'};
   border-radius: 0.375em;
-  outline: none;
-  padding: calc(0.5em - 1px) 1em;
 
-  background-color: ${(props) =>
-    props.outline
-      ? props.theme.palette.light.main
-      : props.color
-      ? props.theme.palette[props.color].main
-      : props.theme.palette.default.main};
-  color: ${(props) =>
-    props.outline && props.color
-      ? props.theme.palette[props.color].main
-      : props.outline
-      ? props.theme.palette.dark.main
-      : props.theme.palette.light.main};
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: ${(props) =>
+    props.size === 'large' ? '18px' : props.theme.typography.body.fontSize};
+  line-height: ${(props) => props.theme.typography.body.lineHeight};
+  letter-spacing: ${(props) => props.theme.typography.body.letterSpacing};
+  text-align: center;
 
   cursor: pointer;
 
+  background-color: ${(props) =>
+    props.outline === 'outline'
+      ? 'transparent'
+      : props.inverted === 'inverted'
+      ? 'transparent'
+      : props.theme.palette.primary.main};
+
+  color: ${(props) =>
+    props.outline === 'outline'
+      ? props.theme.palette.default.light
+      : props.inverted === 'inverted'
+      ? props.theme.palette.default.light
+      : props.theme.palette.default.main};
+
+  transition: all 300ms;
+
   &:hover {
     background-color: ${(props) =>
-      props.color
-        ? props.theme.palette[props.color].main
-        : props.theme.palette.default.main};
-    color: ${(props) =>
-      props.color
-        ? props.theme.palette.light.main
-        : props.theme.palette.dark.main};
-    opacity: ${(props) => (props.outline ? 1 : 0.9)};
+      props.outline === 'outline'
+        ? props.theme.palette.secondary.main
+        : props.inverted === 'inverted'
+        ? props.theme.palette.secondary.main
+        : props.theme.palette.primary.dark};
   }
 `;
