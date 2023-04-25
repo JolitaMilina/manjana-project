@@ -6,6 +6,9 @@ const ICONS = {
   user: <i className='fa-solid fa-user'></i>,
   lock: <i className='fa-solid fa-lock'></i>,
   logo: <i className="fa-solid fa-list-check"></i>,
+  addUser: <i className="fa-solid fa-user-plus"></i>,
+  list: <i className="fa-solid fa-rectangle-list"></i>,
+  sort: <i className="fa-solid fa-sort"></i>
 };
 
 export default ICONS;
