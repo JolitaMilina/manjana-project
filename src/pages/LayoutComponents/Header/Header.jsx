@@ -1,9 +1,10 @@
 import React from "react";
 import ICONS from "../../../shared/icons";
 import Button from "../../../components/atoms/Button/Button.jsx";
-import {StyledHeader, StyledNav, StyledLogo, StyledBtnContainer} from "./styles.js";
+import { StyledHeader, StyledNav, StyledLogo, StyledBtnContainer } from "./styles.js";
 
 const Header = () => {
+
   return (
     <>
       <StyledHeader>
@@ -13,8 +14,8 @@ const Header = () => {
             <h1>mañana</h1>
           </StyledLogo>
           <StyledBtnContainer>
-            <Button action={() => {}} outline='outline'>Login</Button>
-            <Button action={() => {}}>Sign Up</Button>
+            <Button action={() => { }} outline='outline'>Login</Button>
+            <Button action={() => { }}>Sign Up</Button>
           </StyledBtnContainer>
         </StyledNav>
       </StyledHeader>
