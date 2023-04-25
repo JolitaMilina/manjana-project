@@ -33,62 +33,70 @@ const theme = {
     },
   },
   typography: {
-    h1Mobile: {
-      fontSize: '36px',
-      lineHeight: '36px',
-      letterSpacing: '-2%',
+    h1: {
+      mobile: {
+        fontSize: '36px',
+        lineHeight: '36px',
+        letterSpacing: '-2%',
+      },
+      tablet: {
+        fontSize: '48px',
+        lineHeight: '48px',
+        letterSpacing: '-2%',
+      },
+      desktop: {
+        fontSize: '58px',
+        lineHeight: '58px',
+        letterSpacing: '-2%',
+      },
     },
-    h1Tablet: {
-      fontSize: '48px',
-      lineHeight: '48px',
-      letterSpacing: '-2%',
+    h2: {
+      mobile: {
+        fontSize: '28px',
+        lineHeight: '28px',
+        letterSpacing: '-2%',
+      },
+      tablet: {
+        fontSize: '36px',
+        lineHeight: '36px',
+        letterSpacing: '-2%',
+      },
+      desktop: {
+        fontSize: '40px',
+        lineHeight: '40px',
+        letterSpacing: '-2%',
+      },
     },
-    h1Desktop: {
-      fontSize: '58px',
-      lineHeight: '58px',
-      letterSpacing: '-2%',
+    h3: {
+      mobile: {
+        fontSize: '24px',
+        lineHeight: '24px',
+        letterSpacing: '-1%',
+      },
+      tablet: {
+        fontSize: '28px',
+        lineHeight: '28px',
+        letterSpacing: '-1%',
+      },
+      desktop: {
+        fontSize: '36px',
+        lineHeight: '36px',
+        letterSpacing: '-1%',
+      },
     },
-    h2Mobile: {
-      fontSize: '28px',
-      lineHeight: '28px',
-      letterSpacing: '-2%',
-    },
-    h2Tablet: {
-      fontSize: '36px',
-      lineHeight: '36px',
-      letterSpacing: '-2%',
-    },
-    h2Desktop: {
-      fontSize: '40px',
-      lineHeight: '40px',
-      letterSpacing: '-2%',
-    },
-    h3Mobile: {
-      fontSize: '24px',
-      lineHeight: '24px',
-      letterSpacing: '-1%',
-    },
-    h3Tablet: {
-      fontSize: '28px',
-      lineHeight: '28px',
-      letterSpacing: '-1%',
-    },
-    h3Desktop: {
-      fontSize: '36px',
-      lineHeight: '36px',
-      letterSpacing: '-1%',
-    },
-    h4Mobile: {
-      fontSize: '18px',
-      lineHeight: '22px',
-    },
-    h4Tablet: {
-      fontSize: '24px',
-      lineHeight: '28px',
-    },
-    h4Desktop: {
-      fontSize: '24px',
-      lineHeight: '28px',
+    h4: {
+      mobile: {
+        fontSize: '18px',
+        lineHeight: '22px',
+      },
+      tablet: {
+        fontSize: '24px',
+        lineHeight: '28px',
+      },
+      desktop: {
+        fontSize: '24px',
+        lineHeight: '28px',
+      },
     },
     body: {
       fontSize: '16px',
