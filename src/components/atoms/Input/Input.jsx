@@ -5,7 +5,7 @@ import { useRef, useEffect } from 'react';
 const Input = (props) => {
   const theme = useTheme();
 
-  const { type, value, setValue, icon, placeholder, color } = props;
+  const { type, value, setValue, icon, placeholder } = props;
 
   const inputWrapperRef = useRef();
   const inputRef = useRef();
@@ -16,10 +16,8 @@ const Input = (props) => {
       e.stopPropagation();
 
       if (!inputWrapperRef.current.contains(e.target)) {
-        inputWrapperRef.current.style.boxShadow = 'none';
-        inputWrapperRef.current.style.borderColor =
-          theme.palette.secondary.main;
-        iconRef.current.style.color = theme.palette.default.dark;
+        inputWrapperRef.current.style.borderColor = 'none';
+        iconRef.current.style.color = theme.palette.background.light;
       }
     };
 
@@ -31,23 +29,21 @@ const Input = (props) => {
   }, []);
 
   const handleClick = () => {
-    inputWrapperRef.current.style.boxShadow = `0px 0px 1px 3px ${
-      color ? theme.palette[color].light : theme.palette.default.light
-    }`;
-    inputWrapperRef.current.style.borderColor = theme.palette[color].dark;
+    inputWrapperRef.current.style.borderColor = theme.palette.secondary.main;
+    inputWrapperRef.current.style.borderWidth = '1px';
+    inputWrapperRef.current.style.borderStyle = 'solid';
     inputRef.current.focus();
-    iconRef.current.style.color = theme.palette.dark.main;
+    iconRef.current.style.color = theme.palette.secondary.main;
   };
 
   return (
-    <StyledInputWrapper ref={inputWrapperRef} {...props} onClick={handleClick}>
+    <StyledInputWrapper {...props} ref={inputWrapperRef} onClick={handleClick}>
       <StyledIcon ref={iconRef}>{icon && icon}</StyledIcon>
       <StyledInput
         type={type || 'text'}
         value={value}
         onChange={(e) => setValue(e.target.value)}
         ref={inputRef}
-        color='text'
         placeholder={placeholder}
       />
     </StyledInputWrapper>
