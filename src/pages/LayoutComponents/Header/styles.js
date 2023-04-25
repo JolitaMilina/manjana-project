@@ -11,6 +11,7 @@ export const StyledHeader = styled.header`
 `
 
 export const StyledNav = styled.nav`
+  margin: 0 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -37,8 +38,12 @@ export const StyledLogo = styled.div`
 `;
 
 export const StyledBtnContainer = styled.div`
-  display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.75em;
+  display: none;
+
+  @media screen and (min-width: 576px){
+    display: flex;
+  }
 `;
