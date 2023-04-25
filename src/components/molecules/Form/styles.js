@@ -11,17 +11,17 @@ export const StyledLabel = styled.label`
   display: block;
   color: ${(props) => props.theme.palette.background.light};
   font-family: var(--font-family-nunito-sans);
-  font-size: ${(props) => props.theme.typography.h4.mobile};
-  line-height: ${(props) => props.theme.typography.h4.mobile};
+  font-size: ${(props) => props.theme.typography.h4.mobile.fontSize};
+  line-height: ${(props) => props.theme.typography.h4.mobile.lineHeight};
   font-weight: 800;
   text-transform: uppercase;
 `;
 
 export const StyledErrorMessage = styled.p`
-  margin-top: .25rem;
+  margin-top: 0.25rem;
   margin-bottom: 0.5rem;
   display: block;
   color: ${(props) => props.theme.palette.danger.main};
-  font-size: ${(props) => props.theme.typography.legal};
-  line-height: ${(props) => props.theme.typography.legal};
+  font-size: ${(props) => props.theme.typography.legal.fontSize};
+  line-height: ${(props) => props.theme.typography.legal.lineHeight};
 `;
