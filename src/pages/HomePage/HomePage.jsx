@@ -1,13 +1,25 @@
-import TEXTS from '../../shared/texts/TEXTS';
-import { useRecoilValue } from 'recoil';
-import { languageState } from '../../shared/state/atoms';
+import {
+  StyledHeroSectionWrapper,
+  StyledHeroContainer,
+  StyledHeroContent,
+} from "./styles";
+
+import Button from "../../components/atoms/Button/Button";
 
 const HomePage = () => {
-  const language = useRecoilValue(languageState);
   return (
-    <section>
-      <h1>{TEXTS.page.homePage.title[language]}</h1>
-    </section>
+    <StyledHeroSectionWrapper>
+      <StyledHeroContainer>
+        <StyledHeroContent>
+          <h1>Best TODO app in Town!</h1>
+          <p>
+            Use this marvellous tool to structurize <br></br> your day and gain
+            back control of your life!
+          </p>
+        </StyledHeroContent>
+        <Button action={() => {}}>Sign Up</Button>
+      </StyledHeroContainer>
+    </StyledHeroSectionWrapper>
   );
 };
 
