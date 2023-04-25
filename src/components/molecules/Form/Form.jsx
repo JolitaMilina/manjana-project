@@ -9,7 +9,7 @@ import {
   StyledErrorMessage,
 } from './styles';
 
-const Form = ({ inputs, handleSubmit }) => {
+const Form = ({ inputs, handleSubmit, buttonText }) => {
   const [notValid, setNotValid] = useState([]);
 
   const validateSubmit = (e) => {
@@ -38,7 +38,6 @@ const Form = ({ inputs, handleSubmit }) => {
             value={input.value}
             setValue={input.setValue}
             placeholder={input.placeholder}
-            color='secondary'
           />
           {notValid.find((x) => x.label === input.label) && (
             <StyledErrorMessage>{input.errorMessage}</StyledErrorMessage>
@@ -46,7 +45,9 @@ const Form = ({ inputs, handleSubmit }) => {
         </StyledFormControl>
       ))}
       <StyledFormControl>
-        <Button color='info' action={() => {}} text='Sign up' type='submit' />
+        <Button type='submit'>
+          {buttonText}
+        </Button>
       </StyledFormControl>
     </StyledForm>
   );
