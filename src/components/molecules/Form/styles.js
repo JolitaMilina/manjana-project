@@ -25,3 +25,27 @@ export const StyledErrorMessage = styled.p`
   font-size: ${(props) => props.theme.typography.legal.fontSize};
   line-height: ${(props) => props.theme.typography.legal.lineHeight};
 `;
+
+export const StyledFormBottomContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem 0px 1rem;
+`;
+
+export const StyledFormBottomMessage = styled.p`
+  font-size: 14px;
+  line-height: ${(props) => props.theme.typography.body.lineHeight};
+  letter-spacing: ${(props) => props.theme.typography.body.letterSpacing};
+  color: ${(props) => props.theme.palette.background.light};
+`;
+
+export const StyledFormBottomLink = styled.a`
+  font-size: 14px;
+  line-height: ${(props) => props.theme.typography.body.lineHeight};
+  letter-spacing: ${(props) => props.theme.typography.body.letterSpacing};
+  color: ${(props) => props.theme.palette.primary.main};
+  cursor: pointer;
+`;

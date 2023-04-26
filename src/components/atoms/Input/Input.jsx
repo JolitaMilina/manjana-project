@@ -13,10 +13,8 @@ const Input = (props) => {
 
   useEffect(() => {
     const handleOutsideInputClick = (e) => {
-      e.stopPropagation();
-
       if (!inputWrapperRef.current.contains(e.target)) {
-        inputWrapperRef.current.style.borderColor = 'none';
+        inputWrapperRef.current.style.borderColor = theme.palette.default.main;
         iconRef.current.style.color = theme.palette.background.light;
       }
     };

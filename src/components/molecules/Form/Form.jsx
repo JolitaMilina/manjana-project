@@ -5,11 +5,14 @@ import Button from '../../atoms/Button';
 import {
   StyledForm,
   StyledFormControl,
+  StyledFormBottomContainer,
   StyledLabel,
   StyledErrorMessage,
+  StyledFormBottomMessage,
+  StyledFormBottomLink,
 } from './styles';
 
-const Form = ({ inputs, handleSubmit, buttonText }) => {
+const Form = ({ inputs, handleSubmit, buttonText, formType }) => {
   const [notValid, setNotValid] = useState([]);
 
   const validateSubmit = (e) => {
@@ -44,11 +47,22 @@ const Form = ({ inputs, handleSubmit, buttonText }) => {
           )}
         </StyledFormControl>
       ))}
-      <StyledFormControl>
-        <Button type='submit'>
-          {buttonText}
-        </Button>
-      </StyledFormControl>
+      <StyledFormBottomContainer>
+        <Button type='submit'>{buttonText}</Button>
+        <StyledFormBottomMessage>
+          {formType === 'register' ? (
+            <>
+              Already have an account?{' '}
+              <StyledFormBottomLink>Login!</StyledFormBottomLink>
+            </>
+          ) : (
+            <>
+              Don't have an account?{' '}
+              <StyledFormBottomLink>Sign Up!</StyledFormBottomLink>
+            </>
+          )}
+        </StyledFormBottomMessage>
+      </StyledFormBottomContainer>
     </StyledForm>
   );
 };

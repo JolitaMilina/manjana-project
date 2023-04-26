@@ -27,27 +27,26 @@ export const StyledModalTopContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-radius: .5rem .5rem 0 0;
+  border-radius: 0.5rem 0.5rem 0 0;
   padding: 1rem;
   background-color: ${(props) => props.theme.palette.default.main};
-`
+`;
 
 export const StyledModalTitle = styled.h2`
   color: ${(props) => props.theme.palette.default.light};
   font-size: ${(props) => props.theme.palette.default.light};
-`
+`;
 
 export const StyledModalBottomContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0 0 .5rem .5rem;
+  border-radius: 0 0 0.5rem 0.5rem;
   padding: 1rem;
   background-color: ${(props) => props.theme.palette.default.main};
 `;
 
 export const SyledCloseButtonContainer = styled.div`
-
   span {
     display: flex;
     justify-content: flex-end;
@@ -76,7 +75,7 @@ export const SyledCloseButtonContainer = styled.div`
 `;
 
 export const StyledModalContentContainer = styled.div`
-  padding: 1.5rem 1rem 2.5rem;
+  padding: 2.25rem 1rem 1rem;
 `;
 
 export const StyledModal = styled.div`
@@ -85,7 +84,7 @@ export const StyledModal = styled.div`
   gap: 1.5rem; */
   min-width: 320px;
   width: calc(100% - 3.5rem);
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   background-color: ${(props) => props.theme.palette.default.dark};
 
   @media screen and (min-width: 768px) {

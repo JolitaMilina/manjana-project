@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 import BoxCard from '../../components/molecules/BoxCard/BoxCard';
 import {
   StyledContentContainer,
@@ -7,11 +7,12 @@ import {
   StyledHeroSectionWrapper,
   StyledHeroContainer,
   StyledHeroContent,
-  StyledHeroButtons
+  StyledHeroButtons,
 } from './styles';
 import ICONS from '../../shared/icons';
 import Modal from '../../components/molecules/Modal/Modal';
 import Button from '../../components/atoms/Button/Button';
+import RegistrationForm from '../../components/organisms/RegistrationForm/RegistrationForm';
 
 const HomePage = () => {
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -38,8 +39,18 @@ const HomePage = () => {
               </p>
             </StyledHeroContent>
             <StyledHeroButtons>
-              <span><Button action={handleLoginClick} outline='outline' size='large'>Login</Button></span>
-              <Button action={handleSignUpClick} size='large'>Sign Up</Button>
+              <span>
+                <Button
+                  action={handleLoginClick}
+                  outline='outline'
+                  size='large'
+                >
+                  Login
+                </Button>
+              </span>
+              <Button action={handleSignUpClick} size='large'>
+                Sign Up
+              </Button>
             </StyledHeroButtons>
           </StyledHeroContainer>
         </StyledHeroSectionWrapper>
@@ -71,14 +82,13 @@ const HomePage = () => {
         </StyledFeaturesSectionWrapper>
       </StyledContentContainer>
       {showLoginModal && (
-        <Modal onClose={() => setShowLoginModal(false)} title='Login' >
+        <Modal onClose={() => setShowLoginModal(false)} title='Login'>
           <h3>Login form component</h3>
         </Modal>
       )}
       {showSignUpModal && (
-        <Modal
-          onClose={() => setShowSignUpModal(false)} title='Sign Up'>
-          <h3>Signup form component</h3>
+        <Modal onClose={() => setShowSignUpModal(false)} title='Sign Up'>
+          <RegistrationForm />
         </Modal>
       )}
     </>
