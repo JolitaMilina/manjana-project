@@ -26,12 +26,30 @@ export const StyledHeroContainer = styled.div`
 
   h1 {
     color: ${(props) => props.theme.palette.default.light};
+    font-size: ${(props) => props.theme.typography.h1.mobile.fontSize};
+    line-height: ${(props) => props.theme.typography.h1.mobile.lineHeight};
     text-align: center;
   }
 
   p {
     color: ${(props) => props.theme.palette.default.light};
+    font-size: ${(props) => props.theme.typography.body.fontSize};
+    line-height: ${(props) => props.theme.typography.body.lineHeight};
     text-align: center;
+  }
+
+  @media screen and (min-width: 768px) {
+    h1 {
+    font-size: ${(props) => props.theme.typography.h1.tablet.fontSize};
+    line-height: ${(props) => props.theme.typography.h1.tablet.lineHeight};
+   }
+  }
+
+  @media screen and (min-width: 1024px) {
+    h1 {
+    font-size: ${(props) => props.theme.typography.h1.desktop.fontSize};
+    line-height: ${(props) => props.theme.typography.h1.desktop.lineHeight};
+   }
   }
 `;
 
@@ -43,6 +61,19 @@ export const StyledHeroContent = styled.div`
   align-items: center;
   gap: 1.5em;
 `;
+
+export const StyledHeroButtons = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  @media screen and (min-width: 576px) {
+    span {
+      display: none;
+    }
+  }
+`
 
 export const StyledFeaturesSectionWrapper = styled.div`
   display: flex;

@@ -7,7 +7,7 @@ export const StyledOverlay = styled.div`
   bottom: 0;
   left: 0;
 
-  background-color: ${(props) => props.theme.palette.overlay.main};
+  background-color: ${(props) => props.theme.palette.overlay.dark};
 `;
 
 export const StyledModalWrapper = styled.div`
@@ -18,38 +18,77 @@ export const StyledModalWrapper = styled.div`
   left: 0;
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
 
+export const StyledModalTopContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: .5rem .5rem 0 0;
+  padding: 1rem;
+  background-color: ${(props) => props.theme.palette.default.main};
+`
+
+export const StyledModalTitle = styled.h2`
+  color: ${(props) => props.theme.palette.default.light};
+  font-size: ${(props) => props.theme.palette.default.light};
+`
+
+export const StyledModalBottomContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 0 .5rem .5rem;
+  padding: 1rem;
+  background-color: ${(props) => props.theme.palette.default.main};
+`;
+
 export const SyledCloseButtonContainer = styled.div`
-  position: fixed;
-  top: 2em;
-  right: 2em;
+
+  span {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
 
   i {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 1.5em;
-    height: 1.5em;
+    width: 1.75rem;
+    height: 1.75rem;
 
-    font-size: 1.2em;
-    color: ${(props) => props.theme.palette.light.main};
+    font-size: 0.875rem;
+    color: ${(props) => props.theme.palette.default.light};
+    background-color: ${(props) => props.theme.palette.secondary.main};
 
     border-radius: 100%;
 
     cursor: pointer;
 
     &:hover {
-      background-color: ${(props) => props.theme.palette.overlay.dark};
+      background-color: ${(props) => props.theme.palette.secondary.light};
     }
   }
 `;
 
+export const StyledModalContentContainer = styled.div`
+  padding: 1.5rem 1rem 2.5rem;
+`;
+
 export const StyledModal = styled.div`
-  max-width: 800px;
-  padding: 1em;
-  border-radius: 0.375em;
-  background-color: ${(props) => props.theme.palette.light.main};
+  /* display: flex;
+  flex-direction: column;
+  gap: 1.5rem; */
+  min-width: 320px;
+  width: calc(100% - 3.5rem);
+  border-radius: .5rem;
+  background-color: ${(props) => props.theme.palette.default.dark};
+
+  @media screen and (min-width: 768px) {
+    max-width: 698px;
+  }
 `;
