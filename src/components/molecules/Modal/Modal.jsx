@@ -5,10 +5,14 @@ import {
   StyledModalWrapper,
   SyledCloseButtonContainer,
   StyledModal,
+  StyledModalTopContainer,
+  StyledModalTitle,
+  StyledModalContentContainer,
+  StyledModalBottomContainer
 } from './styles';
 import ICONS from '../../../shared/icons';
 
-const Modal = ({ children, onClose }) => {
+const Modal = ({ children, grandChildren, onClose, title }) => {
   useEffect(() => {
     const closeModalOnEscape = (e) => {
       if (e.key === 'Escape') onClose();
@@ -30,10 +34,22 @@ const Modal = ({ children, onClose }) => {
     <>
       <StyledOverlay></StyledOverlay>
       <StyledModalWrapper onClick={closeOnOverlay} data-id='modalWrapper'>
-        <SyledCloseButtonContainer>
-          <span onClick={onClose}>{ICONS.xmark}</span>
-        </SyledCloseButtonContainer>
-        <StyledModal>{children}</StyledModal>
+        <StyledModal>
+          <StyledModalTopContainer>
+            <StyledModalTitle>
+              {title}
+            </StyledModalTitle>
+            <SyledCloseButtonContainer>
+              <span onClick={onClose}>{ICONS.xmark}</span>
+            </SyledCloseButtonContainer>
+          </StyledModalTopContainer>
+          <StyledModalContentContainer>
+            {children}
+          </StyledModalContentContainer>
+          <StyledModalBottomContainer>
+            {grandChildren}
+          </StyledModalBottomContainer>
+        </StyledModal>
       </StyledModalWrapper>
     </>,
     document.getElementById('portal')

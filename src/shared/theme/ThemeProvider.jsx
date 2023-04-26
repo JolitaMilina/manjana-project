@@ -27,9 +27,7 @@ const theme = {
       light: '#71D6C4',
     },
     overlay: {
-      light: 'rgba(0, 0, 0, 0.15)',
-      main: 'rgba(0, 0, 0, 0.3)',
-      dark: 'rgba(0, 0, 0, 0.6)',
+      dark: 'rgba(8, 8, 16, 0.6)',
     },
   },
   typography: {

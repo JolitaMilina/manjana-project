@@ -24,24 +24,40 @@ export const StyledButton = styled.button`
     props.outline === 'outline'
       ? 'transparent'
       : props.inverted === 'inverted'
-      ? 'transparent'
-      : props.theme.palette.primary.main};
+        ? 'transparent'
+        : props.theme.palette.primary.main};
 
   color: ${(props) =>
     props.outline === 'outline'
       ? props.theme.palette.default.light
       : props.inverted === 'inverted'
-      ? props.theme.palette.default.light
-      : props.theme.palette.default.main};
+        ? props.theme.palette.default.light
+        : props.theme.palette.default.main};
 
   transition: all 300ms;
 
-  &:hover {
+  &:active {
     background-color: ${(props) =>
-      props.outline === 'outline'
-        ? props.theme.palette.secondary.main
-        : props.inverted === 'inverted'
+    props.outline === 'outline'
+      ? props.theme.palette.secondary.main
+      : props.inverted === 'inverted'
         ? props.theme.palette.secondary.main
         : props.theme.palette.primary.dark};
+  }
+
+  @media screen and (min-width: 1024px) {
+    &:active {
+      background-color: none;
+    }
+
+    &:hover {
+    background-color: ${(props) =>
+    props.outline === 'outline'
+      ? props.theme.palette.secondary.main
+      : props.inverted === 'inverted'
+        ? props.theme.palette.secondary.main
+        : props.theme.palette.primary.dark};
+
+    }
   }
 `;

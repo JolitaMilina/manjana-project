@@ -1,3 +1,4 @@
+import { useState } from "react";
 import BoxCard from '../../components/molecules/BoxCard/BoxCard';
 import {
   StyledContentContainer,
@@ -6,12 +7,24 @@ import {
   StyledHeroSectionWrapper,
   StyledHeroContainer,
   StyledHeroContent,
+  StyledHeroButtons
 } from './styles';
 import ICONS from '../../shared/icons';
-
+import Modal from '../../components/molecules/Modal/Modal';
 import Button from '../../components/atoms/Button/Button';
 
 const HomePage = () => {
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showSignUpModal, setShowSignUpModal] = useState(false);
+
+  const handleLoginClick = () => {
+    setShowLoginModal(true);
+  };
+
+  const handleSignUpClick = () => {
+    setShowSignUpModal(true);
+  };
+
   return (
     <>
       <StyledContentContainer>
@@ -24,7 +37,10 @@ const HomePage = () => {
                 gain back control of your life!
               </p>
             </StyledHeroContent>
-            <Button action={() => {}}>Sign Up</Button>
+            <StyledHeroButtons>
+              <span><Button action={handleLoginClick} outline='outline' size='large'>Login</Button></span>
+              <Button action={handleSignUpClick} size='large'>Sign Up</Button>
+            </StyledHeroButtons>
           </StyledHeroContainer>
         </StyledHeroSectionWrapper>
         <StyledFeaturesSectionWrapper>
@@ -54,6 +70,17 @@ const HomePage = () => {
           </StyledFeaturesContainer>
         </StyledFeaturesSectionWrapper>
       </StyledContentContainer>
+      {showLoginModal && (
+        <Modal onClose={() => setShowLoginModal(false)} title='Login' >
+          <h3>Login form component</h3>
+        </Modal>
+      )}
+      {showSignUpModal && (
+        <Modal
+          onClose={() => setShowSignUpModal(false)} title='Sign Up'>
+          <h3>Signup form component</h3>
+        </Modal>
+      )}
     </>
   );
 };
