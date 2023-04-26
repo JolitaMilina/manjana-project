@@ -13,6 +13,7 @@ import ICONS from '../../shared/icons';
 import Modal from '../../components/molecules/Modal/Modal';
 import Button from '../../components/atoms/Button/Button';
 import RegistrationForm from '../../components/organisms/RegistrationForm/RegistrationForm';
+import LoginForm from '../../components/organisms/LoginForm/LoginForm';
 
 const HomePage = () => {
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -45,7 +46,7 @@ const HomePage = () => {
                   outline='outline'
                   size='large'
                 >
-                  Login
+                  Log In
                 </Button>
               </span>
               <Button action={handleSignUpClick} size='large'>
@@ -82,8 +83,8 @@ const HomePage = () => {
         </StyledFeaturesSectionWrapper>
       </StyledContentContainer>
       {showLoginModal && (
-        <Modal onClose={() => setShowLoginModal(false)} title='Login'>
-          <h3>Login form component</h3>
+        <Modal onClose={() => setShowLoginModal(false)} title='Log In'>
+          <LoginForm />
         </Modal>
       )}
       {showSignUpModal && (
