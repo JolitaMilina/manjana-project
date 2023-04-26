@@ -11,12 +11,22 @@ client.interceptors.response.use(
 
 class Api_instance {
   constructor() {
-    const baseUl = 'http://localhost:8000';
+    const baseUrl = 'http://localhost:8000';
 
-    this.baseUl = {
-      todos: baseUl + '/todos',
-      users: baseUl + '/users',
+    this.baseUrl = {
+      todos: baseUrl + '/todos',
+      users: baseUrl + '/users',
     };
+  }
+
+  async getUsers() {
+    const response = await client.get(this.baseUrl.users);
+    return response;
+  }
+
+  async createUser(user) {
+    const response = await client.post(this.baseUrl.users, user);
+    return response;
   }
 }
 

@@ -4,7 +4,7 @@ export const StyledInputWrapper = styled.div`
   padding: calc(0.625rem - 1px) calc(0.75rem - 1px);
   border-width: 1px;
   border-style: solid;
-  border-color: none;
+  border-color: ${(props) => props.theme.palette.default.main};
   border-radius: 0.375em;
   background-color: ${(props) => props.theme.palette.default.main};
 `;

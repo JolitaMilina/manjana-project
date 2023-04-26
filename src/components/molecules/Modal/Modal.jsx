@@ -8,11 +8,10 @@ import {
   StyledModalTopContainer,
   StyledModalTitle,
   StyledModalContentContainer,
-  StyledModalBottomContainer
 } from './styles';
 import ICONS from '../../../shared/icons';
 
-const Modal = ({ children, grandChildren, onClose, title }) => {
+const Modal = ({ children, onClose, title }) => {
   useEffect(() => {
     const closeModalOnEscape = (e) => {
       if (e.key === 'Escape') onClose();
@@ -36,19 +35,12 @@ const Modal = ({ children, grandChildren, onClose, title }) => {
       <StyledModalWrapper onClick={closeOnOverlay} data-id='modalWrapper'>
         <StyledModal>
           <StyledModalTopContainer>
-            <StyledModalTitle>
-              {title}
-            </StyledModalTitle>
+            <StyledModalTitle>{title}</StyledModalTitle>
             <SyledCloseButtonContainer>
               <span onClick={onClose}>{ICONS.xmark}</span>
             </SyledCloseButtonContainer>
           </StyledModalTopContainer>
-          <StyledModalContentContainer>
-            {children}
-          </StyledModalContentContainer>
-          <StyledModalBottomContainer>
-            {grandChildren}
-          </StyledModalBottomContainer>
+          <StyledModalContentContainer>{children}</StyledModalContentContainer>
         </StyledModal>
       </StyledModalWrapper>
     </>,

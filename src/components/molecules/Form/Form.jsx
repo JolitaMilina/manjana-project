@@ -5,11 +5,12 @@ import Button from '../../atoms/Button';
 import {
   StyledForm,
   StyledFormControl,
+  StyledFormBottomContainer,
   StyledLabel,
   StyledErrorMessage,
 } from './styles';
 
-const Form = ({ inputs, handleSubmit, buttonText }) => {
+const Form = ({ inputs, handleSubmit, buttonText, children }) => {
   const [notValid, setNotValid] = useState([]);
 
   const validateSubmit = (e) => {
@@ -44,11 +45,10 @@ const Form = ({ inputs, handleSubmit, buttonText }) => {
           )}
         </StyledFormControl>
       ))}
-      <StyledFormControl>
-        <Button type='submit'>
-          {buttonText}
-        </Button>
-      </StyledFormControl>
+      <StyledFormBottomContainer>
+        <Button type='submit'>{buttonText}</Button>
+        {children}
+      </StyledFormBottomContainer>
     </StyledForm>
   );
 };

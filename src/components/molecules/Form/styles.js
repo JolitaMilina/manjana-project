@@ -25,3 +25,12 @@ export const StyledErrorMessage = styled.p`
   font-size: ${(props) => props.theme.typography.legal.fontSize};
   line-height: ${(props) => props.theme.typography.legal.lineHeight};
 `;
+
+export const StyledFormBottomContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem 0px 1rem;
+`;
