@@ -9,6 +9,7 @@ import {
   StyledBtnContainer,
 } from './styles.js';
 import RegistrationForm from '../../../components/organisms/RegistrationForm/RegistrationForm';
+import LoginForm from '../../../components/organisms/LoginForm/LoginForm';
 
 const Header = () => {
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -32,15 +33,15 @@ const Header = () => {
           </StyledLogo>
           <StyledBtnContainer>
             <Button action={handleLoginClick} outline='outline'>
-              Login
+              Log In
             </Button>
             <Button action={handleSignUpClick}>Sign Up</Button>
           </StyledBtnContainer>
         </StyledNav>
       </StyledHeader>
       {showLoginModal && (
-        <Modal onClose={() => setShowLoginModal(false)} title='Login'>
-          <h3>Login form</h3>
+        <Modal onClose={() => setShowLoginModal(false)} title='Log In'>
+          <LoginForm />
         </Modal>
       )}
       {showSignUpModal && (

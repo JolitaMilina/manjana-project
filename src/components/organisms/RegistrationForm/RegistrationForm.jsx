@@ -69,10 +69,10 @@ const RegistrationForm = () => {
   };
 
   return (
-    <Form inputs={inputs} handleSubmit={handleSubmit} buttonText={'SignUp'}>
+    <Form inputs={inputs} handleSubmit={handleSubmit} buttonText={'Sign Up'}>
       <StyledFormBottomMessage>
         Already have an account?{' '}
-        <StyledFormBottomLink>Login!</StyledFormBottomLink>
+        <StyledFormBottomLink>Log In!</StyledFormBottomLink>
       </StyledFormBottomMessage>
     </Form>
   );
