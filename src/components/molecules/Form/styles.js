@@ -34,18 +34,3 @@ export const StyledFormBottomContainer = styled.div`
   gap: 1rem;
   padding: 2rem 0px 1rem;
 `;
-
-export const StyledFormBottomMessage = styled.p`
-  font-size: 14px;
-  line-height: ${(props) => props.theme.typography.body.lineHeight};
-  letter-spacing: ${(props) => props.theme.typography.body.letterSpacing};
-  color: ${(props) => props.theme.palette.background.light};
-`;
-
-export const StyledFormBottomLink = styled.a`
-  font-size: 14px;
-  line-height: ${(props) => props.theme.typography.body.lineHeight};
-  letter-spacing: ${(props) => props.theme.typography.body.letterSpacing};
-  color: ${(props) => props.theme.palette.primary.main};
-  cursor: pointer;
-`;

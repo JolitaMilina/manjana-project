@@ -8,11 +8,9 @@ import {
   StyledFormBottomContainer,
   StyledLabel,
   StyledErrorMessage,
-  StyledFormBottomMessage,
-  StyledFormBottomLink,
 } from './styles';
 
-const Form = ({ inputs, handleSubmit, buttonText, formType }) => {
+const Form = ({ inputs, handleSubmit, buttonText, children }) => {
   const [notValid, setNotValid] = useState([]);
 
   const validateSubmit = (e) => {
@@ -49,19 +47,7 @@ const Form = ({ inputs, handleSubmit, buttonText, formType }) => {
       ))}
       <StyledFormBottomContainer>
         <Button type='submit'>{buttonText}</Button>
-        <StyledFormBottomMessage>
-          {formType === 'register' ? (
-            <>
-              Already have an account?{' '}
-              <StyledFormBottomLink>Login!</StyledFormBottomLink>
-            </>
-          ) : (
-            <>
-              Don't have an account?{' '}
-              <StyledFormBottomLink>Sign Up!</StyledFormBottomLink>
-            </>
-          )}
-        </StyledFormBottomMessage>
+        {children}
       </StyledFormBottomContainer>
     </StyledForm>
   );

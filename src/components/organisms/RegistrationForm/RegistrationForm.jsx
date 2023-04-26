@@ -3,6 +3,7 @@ import Form from '../../molecules/Form';
 import { API } from '../../../shared/api/api';
 import { useSetRecoilState } from 'recoil';
 import { isLoggedIn, userState } from '../../../shared/state/atoms';
+import { StyledFormBottomMessage, StyledFormBottomLink } from './styles';
 
 const RegistrationForm = () => {
   const [registration, setRegistration] = useState({
@@ -68,12 +69,12 @@ const RegistrationForm = () => {
   };
 
   return (
-    <Form
-      formType={'register'}
-      inputs={inputs}
-      handleSubmit={handleSubmit}
-      buttonText={'SignUp'}
-    />
+    <Form inputs={inputs} handleSubmit={handleSubmit} buttonText={'SignUp'}>
+      <StyledFormBottomMessage>
+        Already have an account?{' '}
+        <StyledFormBottomLink>Login!</StyledFormBottomLink>
+      </StyledFormBottomMessage>
+    </Form>
   );
 };
 
