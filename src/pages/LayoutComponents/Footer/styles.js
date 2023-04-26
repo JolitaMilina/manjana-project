@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledFooter = styled.footer`
   display: flex;
@@ -7,13 +7,12 @@ export const StyledFooter = styled.footer`
   width: 100%;
   background-color: ${(props) => props.theme.palette.default.main};
   height: 3.5rem;
-  position: fixed;
+  position: relative;
   bottom: 0;
 
   p {
     color: ${(props) => props.theme.palette.background.light};
+    font-size: ${(props) => props.theme.typography.legal.fontSize};
     text-align: center;
-    font-weight: ${(props) => props.theme.typography.legal};
-    size: ${(props) => props.theme.typography.legal};
   }
 `;

@@ -13,6 +13,7 @@ export const StyledButton = styled.button`
 
   font-size: ${(props) =>
     props.size === 'large' ? '18px' : props.theme.typography.body.fontSize};
+  font-weight: 600;
   line-height: ${(props) => props.theme.typography.body.lineHeight};
   letter-spacing: ${(props) => props.theme.typography.body.letterSpacing};
   text-align: center;

@@ -1,24 +1,22 @@
-import Box from "../../atoms/Box/Box";
-import { StyledBoxCardImg, StyledBoxCardContent, StyledBoxCardContainer } from "./styles";
+import Box from '../../atoms/Box/Box';
+import {
+  StyledBoxCardImg,
+  StyledBoxCardContent,
+  StyledBoxCardContainer,
+} from './styles';
 
-const BoxCard = ({icon, title, desc}) => {
-
+const BoxCard = ({ icon, title, desc }) => {
   return (
     <Box>
       <StyledBoxCardContainer>
-        <StyledBoxCardImg>{icon}
-        </StyledBoxCardImg>
+        <StyledBoxCardImg>{icon}</StyledBoxCardImg>
         <StyledBoxCardContent>
-          <h3>{title}</h3>
+          <h4>{title}</h4>
           <p>{desc}</p>
         </StyledBoxCardContent>
-        </StyledBoxCardContainer>
+      </StyledBoxCardContainer>
     </Box>
-    
   );
 };
 
 export default BoxCard;
-
-
-
