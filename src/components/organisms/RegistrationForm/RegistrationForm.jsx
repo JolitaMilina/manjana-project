@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import Form from '../../molecules/Form';
-import { API } from '../../../shared/api/api';
-import { useSetRecoilState } from 'recoil';
 import { isLoggedIn, userState } from '../../../shared/state/atoms';
+import { useSetRecoilState } from 'recoil';
+import { API } from '../../../shared/api/api';
+import Form from '../../molecules/Form';
 import { StyledFormBottomMessage, StyledFormBottomLink } from './styles';
 
-const RegistrationForm = () => {
+const RegistrationForm = ({ onClose }) => {
   const [registration, setRegistration] = useState({
     name: '',
     surname: '',
@@ -61,7 +61,11 @@ const RegistrationForm = () => {
 
   const handleSubmit = async () => {
     try {
-      await API.createUser(registration);
+      const newUser = await API.createUser(registration);
+      setIsLoggedIn(true);
+      setUser(newUser);
+      localStorage.setItem('isLoggedIn', true);
+      onClose();
       console.log('User created successfully!');
     } catch (error) {
       console.error(error);

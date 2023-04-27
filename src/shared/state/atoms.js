@@ -1,13 +1,8 @@
 import { atom } from 'recoil';
 
-export const languageState = atom({
-  key: 'languageState',
-  default: 'lt',
-});
-
 export const isLoggedIn = atom({
   key: 'isLoggedIn',
-  default: false,
+  default: JSON.parse(localStorage.getItem('isLoggedIn')) || false,
 });
 
 export const userState = atom({

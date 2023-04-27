@@ -37,13 +37,18 @@ export const StyledLogo = styled.div`
   }
 `;
 
-export const StyledBtnContainer = styled.div`
+export const StyledBtnContainer = styled.div``;
+
+export const StyledLogoutButtonContainer = styled.div`
+  display: block;
+`
+export const StyledInitialButtonContainer = styled.div`
+  display: none;
   justify-content: center;
   align-items: center;
   gap: 0.75em;
-  display: none;
 
   @media screen and (min-width: 576px){
     display: flex;
-  }
-`;
+}
+`
