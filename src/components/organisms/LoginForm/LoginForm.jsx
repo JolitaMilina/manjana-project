@@ -3,9 +3,9 @@ import Form from '../../molecules/Form';
 import { API } from '../../../shared/api/api';
 import { useSetRecoilState } from 'recoil';
 import { isLoggedIn, userState } from '../../../shared/state/atoms';
-import { StyledFormBottomMessage, StyledFormBottomLink } from './styles';
+import { StyledFormBottomMessage, StyledFormBottomButton } from './styles';
 
-const LoginForm = ({ onClose }) => {
+const LoginForm = ({ onClose, toggleForm }) => {
   const [login, setLogin] = useState({
     email: '',
     password: '',
@@ -58,8 +58,8 @@ const LoginForm = ({ onClose }) => {
   return (
     <Form inputs={inputs} handleSubmit={handleSubmit} buttonText={'Log In'}>
       <StyledFormBottomMessage>
-        Don't have an account?{' '}
-        <StyledFormBottomLink>Sign Up!</StyledFormBottomLink>
+        Don't have an account?
+        <StyledFormBottomButton onClick={toggleForm}>Sign Up!</StyledFormBottomButton>
       </StyledFormBottomMessage>
     </Form>
   );
