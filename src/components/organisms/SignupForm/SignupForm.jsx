@@ -18,6 +18,11 @@ const SignupForm = ({ onClose, toggleForm }) => {
   const setIsLoggedIn = useSetRecoilState(isLoggedIn);
 
   const [emailError, setEmailError] = useState(null);
+  const [nameError, setNameError] = useState(null);
+  const [surnameError, setSurnameError] = useState(null);
+
+  const isNameValid = (name) => /^[a-zA-Z\s]*$/.test(name);
+  const isSurnameValid = (surname) => /^[a-zA-Z\s]*$/.test(surname);
 
   const inputs = [
     {
@@ -25,18 +30,30 @@ const SignupForm = ({ onClose, toggleForm }) => {
       label: 'Name',
       placeholder: 'Enter your name...',
       value: signup.name,
-      setValue: (value) => setSignup((prev) => ({ ...prev, name: value })),
+      setValue: (value) => {
+        setNameError(null);
+        if (!isNameValid(value)) {
+          setNameError('Name can only contain letters and spaces.');
+        }
+        setSignup((prev) => ({ ...prev, name: value }));
+      },
       required: true,
-      errorMessage: 'Required',
+      errorMessage: nameError || 'Required',
     },
     {
       type: 'text',
       label: 'Surname',
       placeholder: 'Enter your surname...',
       value: signup.surname,
-      setValue: (value) => setSignup((prev) => ({ ...prev, surname: value })),
+      setValue: (value) => {
+        setSurnameError(null);
+        if (!isSurnameValid(value)) {
+          setSurnameError('Surname can only contain letters and spaces.');
+        }
+        setSignup((prev) => ({ ...prev, surname: value }));
+      },
       required: true,
-      errorMessage: 'Required',
+      errorMessage: surnameError || 'Required',
     },
     {
       type: 'email',
@@ -86,7 +103,11 @@ const SignupForm = ({ onClose, toggleForm }) => {
       inputs={inputs}
       handleSubmit={handleSubmit}
       buttonText={'Sign Up'}
-      customErrors={emailError ? { Email: emailError } : null}
+      customErrors={{
+        ...((emailError && { Email: emailError }) || {}),
+        ...((nameError && { Name: nameError }) || {}),
+        ...((surnameError && { Surname: surnameError }) || {}),
+      }}
     >
       <StyledFormBottomMessage>
         Already have an account?
