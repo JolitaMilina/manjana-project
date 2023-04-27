@@ -10,7 +10,7 @@ import {
   StyledErrorMessage,
 } from './styles';
 
-const Form = ({ inputs, handleSubmit, buttonText, children }) => {
+const Form = ({ inputs, handleSubmit, buttonText, children, customErrors }) => {
   const [notValid, setNotValid] = useState([]);
 
   const validateSubmit = (e) => {
@@ -40,9 +40,12 @@ const Form = ({ inputs, handleSubmit, buttonText, children }) => {
             setValue={input.setValue}
             placeholder={input.placeholder}
           />
-          {notValid.find((x) => x.label === input.label) && (
-            <StyledErrorMessage>{input.errorMessage}</StyledErrorMessage>
-          )}
+          {notValid.find((x) => x.label === input.label) ||
+          (customErrors && customErrors[input.label]) ? (
+            <StyledErrorMessage>
+              {input.errorMessage || customErrors[input.label]}
+            </StyledErrorMessage>
+          ) : null}
         </StyledFormControl>
       ))}
       <StyledFormBottomContainer>

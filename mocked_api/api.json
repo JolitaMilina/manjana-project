@@ -15,7 +15,32 @@
       "surname": "Smith",
       "email": "john@email.com",
       "password": "password123",
-      "todos": [1]
+      "todos": [
+        1
+      ]
+    },
+    {
+      "name": "test",
+      "surname": "test",
+      "email": "test@test",
+      "password": "test",
+      "id": 2
+    },
+    {
+      "name": "test",
+      "surname": "test",
+      "email": "test@testa",
+      "password": "test",
+      "todos": [],
+      "id": 3
+    },
+    {
+      "name": "test",
+      "surname": "test",
+      "email": "test@testaa",
+      "password": "test",
+      "todos": [],
+      "id": 4
     }
   ]
 }

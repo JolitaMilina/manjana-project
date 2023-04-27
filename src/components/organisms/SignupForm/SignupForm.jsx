@@ -11,10 +11,13 @@ const SignupForm = ({ onClose, toggleForm }) => {
     surname: '',
     email: '',
     password: '',
+    todos: [],
   });
 
   const setUser = useSetRecoilState(userState);
   const setIsLoggedIn = useSetRecoilState(isLoggedIn);
+
+  const [emailError, setEmailError] = useState(null);
 
   const inputs = [
     {
@@ -22,8 +25,7 @@ const SignupForm = ({ onClose, toggleForm }) => {
       label: 'Name',
       placeholder: 'Enter your name...',
       value: signup.name,
-      setValue: (value) =>
-        setSignup((prev) => ({ ...prev, name: value })),
+      setValue: (value) => setSignup((prev) => ({ ...prev, name: value })),
       required: true,
       errorMessage: 'Required',
     },
@@ -32,8 +34,7 @@ const SignupForm = ({ onClose, toggleForm }) => {
       label: 'Surname',
       placeholder: 'Enter your surname...',
       value: signup.surname,
-      setValue: (value) =>
-        setSignup((prev) => ({ ...prev, surname: value })),
+      setValue: (value) => setSignup((prev) => ({ ...prev, surname: value })),
       required: true,
       errorMessage: 'Required',
     },
@@ -42,18 +43,19 @@ const SignupForm = ({ onClose, toggleForm }) => {
       label: 'Email',
       placeholder: 'Enter your email...',
       value: signup.email,
-      setValue: (value) =>
-        setSignup((prev) => ({ ...prev, email: value })),
+      setValue: (value) => {
+        setEmailError(null);
+        setSignup((prev) => ({ ...prev, email: value }));
+      },
       required: true,
-      errorMessage: 'Required',
+      errorMessage: emailError || 'Required',
     },
     {
       type: 'password',
       label: 'Password',
       placeholder: 'Enter your password...',
       value: signup.password,
-      setValue: (value) =>
-        setSignup((prev) => ({ ...prev, password: value })),
+      setValue: (value) => setSignup((prev) => ({ ...prev, password: value })),
       required: true,
       errorMessage: 'Required',
     },
@@ -61,22 +63,36 @@ const SignupForm = ({ onClose, toggleForm }) => {
 
   const handleSubmit = async () => {
     try {
-      const newUser = await API.createUser(signup);
-      setIsLoggedIn(true);
-      setUser(newUser);
-      localStorage.setItem('isLoggedIn', true);
-      onClose();
-      console.log('User created successfully!');
+      const users = await API.getUsers();
+      const emailExists = users.some((user) => user.email === signup.email);
+
+      if (emailExists) {
+        setEmailError('Email already exists. Please use another email.');
+      } else {
+        const newUser = await API.createUser(signup);
+        setIsLoggedIn(true);
+        setUser(newUser);
+        localStorage.setItem('isLoggedIn', true);
+        onClose();
+        console.log('User created successfully!');
+      }
     } catch (error) {
       console.error(error);
     }
   };
 
   return (
-    <Form inputs={inputs} handleSubmit={handleSubmit} buttonText={'Sign Up'}>
+    <Form
+      inputs={inputs}
+      handleSubmit={handleSubmit}
+      buttonText={'Sign Up'}
+      customErrors={emailError ? { Email: emailError } : null}
+    >
       <StyledFormBottomMessage>
         Already have an account?
-        <StyledFormBottomButton onClick={toggleForm}>Log In!</StyledFormBottomButton>
+        <StyledFormBottomButton onClick={toggleForm}>
+          Log In!
+        </StyledFormBottomButton>
       </StyledFormBottomMessage>
     </Form>
   );
