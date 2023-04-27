@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Form from '../../molecules/Form';
 import { API } from '../../../shared/api/api';
 import { useSetRecoilState } from 'recoil';
 import { isLoggedIn, userState } from '../../../shared/state/atoms';
 import { StyledFormBottomMessage, StyledFormBottomLink } from './styles';
 
-const LoginForm = () => {
+const LoginForm = ({ onClose }) => {
   const [login, setLogin] = useState({
     email: '',
     password: '',
@@ -44,6 +44,8 @@ const LoginForm = () => {
       if (user) {
         setUser(user);
         setIsLoggedIn(true);
+        localStorage.setItem('isLoggedIn', true);
+        onClose();
         console.log(`Logged in as ${user.email}`);
       } else {
         console.log('Invalid email or password!');

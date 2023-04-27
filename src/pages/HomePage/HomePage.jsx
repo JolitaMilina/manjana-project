@@ -1,5 +1,13 @@
 import { useState } from 'react';
+import { useRecoilState } from 'recoil';
+import { useNavigate } from 'react-router-dom';
+import { isLoggedIn } from "../../shared/state/atoms";
+import Button from '../../components/atoms/Button/Button';
+import ICONS from '../../shared/icons';
 import BoxCard from '../../components/molecules/BoxCard/BoxCard';
+import Modal from '../../components/molecules/Modal/Modal';
+import RegistrationForm from '../../components/organisms/RegistrationForm/RegistrationForm';
+import LoginForm from '../../components/organisms/LoginForm/LoginForm';
 import {
   StyledContentContainer,
   StyledFeaturesSectionWrapper,
@@ -9,15 +17,14 @@ import {
   StyledHeroContent,
   StyledHeroButtons,
 } from './styles';
-import ICONS from '../../shared/icons';
-import Modal from '../../components/molecules/Modal/Modal';
-import Button from '../../components/atoms/Button/Button';
-import RegistrationForm from '../../components/organisms/RegistrationForm/RegistrationForm';
-import LoginForm from '../../components/organisms/LoginForm/LoginForm';
 
 const HomePage = () => {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showSignUpModal, setShowSignUpModal] = useState(false);
+
+  const [loggedIn] = useRecoilState(isLoggedIn);
+
+  const navigate = useNavigate();
 
   const handleLoginClick = () => {
     setShowLoginModal(true);
@@ -25,6 +32,10 @@ const HomePage = () => {
 
   const handleSignUpClick = () => {
     setShowSignUpModal(true);
+  };
+
+  const handleNavigateTodo = () => {
+    navigate('/todos');
   };
 
   return (
@@ -40,18 +51,21 @@ const HomePage = () => {
               </p>
             </StyledHeroContent>
             <StyledHeroButtons>
-              <span>
-                <Button
-                  action={handleLoginClick}
-                  outline='outline'
-                  size='large'
-                >
-                  Log In
-                </Button>
-              </span>
-              <Button action={handleSignUpClick} size='large'>
-                Sign Up
-              </Button>
+              {loggedIn && (
+                <Button action={handleNavigateTodo} size='large'>Let's TODO!</Button>
+              )}
+              {!loggedIn && (
+                <>
+                  <span>
+                    <Button action={handleLoginClick} outline='outline' size='large'>
+                      Login
+                    </Button>
+                  </span>
+                  <Button action={handleSignUpClick} size='large'>
+                    Sign Up
+                  </Button>
+                </>
+              )}
             </StyledHeroButtons>
           </StyledHeroContainer>
         </StyledHeroSectionWrapper>
@@ -84,12 +98,12 @@ const HomePage = () => {
       </StyledContentContainer>
       {showLoginModal && (
         <Modal onClose={() => setShowLoginModal(false)} title='Log In'>
-          <LoginForm />
+          <LoginForm onClose={() => setShowLoginModal(false)} />
         </Modal>
       )}
       {showSignUpModal && (
         <Modal onClose={() => setShowSignUpModal(false)} title='Sign Up'>
-          <RegistrationForm />
+          <RegistrationForm onClose={() => setShowSignUpModal(false)} />
         </Modal>
       )}
     </>
