@@ -7,13 +7,20 @@ import ICONS from '../../../shared/icons';
 import Modal from '../../../components/molecules/Modal/Modal';
 import RegistrationForm from '../../../components/organisms/RegistrationForm/RegistrationForm';
 import LoginForm from '../../../components/organisms/LoginForm/LoginForm';
-import { StyledHeader, StyledNav, StyledLogo, StyledBtnContainer, StyledLogoutButtonContainer, StyledInitialButtonContainer } from './styles.js';
+import {
+  StyledHeader,
+  StyledNav,
+  StyledLogo,
+  StyledBtnContainer,
+  StyledLogoutButtonContainer,
+  StyledInitialButtonContainer,
+} from './styles.js';
 
 const Header = () => {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showSignUpModal, setShowSignUpModal] = useState(false);
 
-  const [loggedIn] = useRecoilState(isLoggedIn);
+  const [loggedIn, setIsLoggedIn] = useRecoilState(isLoggedIn);
 
   const navigate = useNavigate();
 
@@ -23,6 +30,11 @@ const Header = () => {
 
   const handleSignUpClick = () => {
     setShowSignUpModal(true);
+  };
+
+  const handleLogoutClick = () => {
+    setIsLoggedIn(false);
+    localStorage.clear();
   };
 
   const handleNavigateLogo = () => {
@@ -40,7 +52,9 @@ const Header = () => {
           <StyledBtnContainer>
             {loggedIn && (
               <StyledLogoutButtonContainer>
-                <Button action={() => { }} outline='outline'>Logout</Button>
+                <Button action={handleLogoutClick} outline='outline'>
+                  Logout
+                </Button>
               </StyledLogoutButtonContainer>
             )}
             {!loggedIn && (
