@@ -3,10 +3,10 @@ import { isLoggedIn, userState } from '../../../shared/state/atoms';
 import { useSetRecoilState } from 'recoil';
 import { API } from '../../../shared/api/api';
 import Form from '../../molecules/Form';
-import { StyledFormBottomMessage, StyledFormBottomLink } from './styles';
+import { StyledFormBottomMessage, StyledFormBottomButton } from './styles';
 
-const RegistrationForm = ({ onClose }) => {
-  const [registration, setRegistration] = useState({
+const SignupForm = ({ onClose, toggleForm }) => {
+  const [signup, setSignup] = useState({
     name: '',
     surname: '',
     email: '',
@@ -21,9 +21,9 @@ const RegistrationForm = ({ onClose }) => {
       type: 'text',
       label: 'Name',
       placeholder: 'Enter your name...',
-      value: registration.name,
+      value: signup.name,
       setValue: (value) =>
-        setRegistration((prev) => ({ ...prev, name: value })),
+        setSignup((prev) => ({ ...prev, name: value })),
       required: true,
       errorMessage: 'Required',
     },
@@ -31,9 +31,9 @@ const RegistrationForm = ({ onClose }) => {
       type: 'text',
       label: 'Surname',
       placeholder: 'Enter your surname...',
-      value: registration.surname,
+      value: signup.surname,
       setValue: (value) =>
-        setRegistration((prev) => ({ ...prev, surname: value })),
+        setSignup((prev) => ({ ...prev, surname: value })),
       required: true,
       errorMessage: 'Required',
     },
@@ -41,9 +41,9 @@ const RegistrationForm = ({ onClose }) => {
       type: 'email',
       label: 'Email',
       placeholder: 'Enter your email...',
-      value: registration.email,
+      value: signup.email,
       setValue: (value) =>
-        setRegistration((prev) => ({ ...prev, email: value })),
+        setSignup((prev) => ({ ...prev, email: value })),
       required: true,
       errorMessage: 'Required',
     },
@@ -51,9 +51,9 @@ const RegistrationForm = ({ onClose }) => {
       type: 'password',
       label: 'Password',
       placeholder: 'Enter your password...',
-      value: registration.password,
+      value: signup.password,
       setValue: (value) =>
-        setRegistration((prev) => ({ ...prev, password: value })),
+        setSignup((prev) => ({ ...prev, password: value })),
       required: true,
       errorMessage: 'Required',
     },
@@ -61,7 +61,7 @@ const RegistrationForm = ({ onClose }) => {
 
   const handleSubmit = async () => {
     try {
-      const newUser = await API.createUser(registration);
+      const newUser = await API.createUser(signup);
       setIsLoggedIn(true);
       setUser(newUser);
       localStorage.setItem('isLoggedIn', true);
@@ -75,11 +75,11 @@ const RegistrationForm = ({ onClose }) => {
   return (
     <Form inputs={inputs} handleSubmit={handleSubmit} buttonText={'Sign Up'}>
       <StyledFormBottomMessage>
-        Already have an account?{' '}
-        <StyledFormBottomLink>Log In!</StyledFormBottomLink>
+        Already have an account?
+        <StyledFormBottomButton onClick={toggleForm}>Log In!</StyledFormBottomButton>
       </StyledFormBottomMessage>
     </Form>
   );
 };
 
-export default RegistrationForm;
+export default SignupForm;

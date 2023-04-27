@@ -6,7 +6,7 @@ import Button from '../../components/atoms/Button/Button';
 import ICONS from '../../shared/icons';
 import BoxCard from '../../components/molecules/BoxCard/BoxCard';
 import Modal from '../../components/molecules/Modal/Modal';
-import RegistrationForm from '../../components/organisms/RegistrationForm/RegistrationForm';
+import SignupForm from '../../components/organisms/SignupForm/SignupForm';
 import LoginForm from '../../components/organisms/LoginForm/LoginForm';
 import {
   StyledContentContainer,
@@ -28,10 +28,12 @@ const HomePage = () => {
 
   const handleLoginClick = () => {
     setShowLoginModal(true);
+    setShowSignUpModal(false);
   };
 
   const handleSignUpClick = () => {
     setShowSignUpModal(true);
+    setShowLoginModal(false);
   };
 
   const handleNavigateTodo = () => {
@@ -98,12 +100,12 @@ const HomePage = () => {
       </StyledContentContainer>
       {showLoginModal && (
         <Modal onClose={() => setShowLoginModal(false)} title='Log In'>
-          <LoginForm onClose={() => setShowLoginModal(false)} />
+          <LoginForm onClose={() => setShowLoginModal(false)} toggleForm={handleSignUpClick} />
         </Modal>
       )}
       {showSignUpModal && (
         <Modal onClose={() => setShowSignUpModal(false)} title='Sign Up'>
-          <RegistrationForm onClose={() => setShowSignUpModal(false)} />
+          <SignupForm onClose={() => setShowSignUpModal(false)} toggleForm={handleLoginClick} />
         </Modal>
       )}
     </>
