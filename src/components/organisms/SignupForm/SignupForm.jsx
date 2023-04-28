@@ -22,8 +22,30 @@ const SignupForm = ({ onClose, toggleForm }) => {
   const [emailError, setEmailError] = useState(null);
   const [passwordError, setPasswordError] = useState(null);
 
-  const isNameValid = (name) => /^[a-zA-Z\s]*$/.test(name);
-  const isSurnameValid = (surname) => /^[a-zA-Z\s]*$/.test(surname);
+  const isNameValid = (name) => /^[\p{Letter}\s]*$/u.test(name);
+  const isSurnameValid = (surname) => /^[\p{Letter}\s]*$/u.test(surname);
+
+  const validateName = (value) => {
+    setNameError(null);
+    if (!isNameValid(value)) {
+      setNameError('Name can only contain letters and spaces');
+    }
+    if (!value) {
+      setNameError('Required');
+    }
+    setSignup((prev) => ({ ...prev, name: value }));
+  };
+
+  const validateSurname = (value) => {
+    setSurnameError(null);
+    if (!isSurnameValid(value)) {
+      setSurnameError('Surname can only contain letters and spaces');
+    }
+    if (!value) {
+      setSurnameError('Required');
+    }
+    setSignup((prev) => ({ ...prev, surname: value }));
+  };
 
   const validatePassword = (password) => {
     const hasNumber = /\d/;
@@ -47,14 +69,7 @@ const SignupForm = ({ onClose, toggleForm }) => {
       placeholder: 'Enter your name...',
       value: signup.name,
       setValue: (value) => {
-        setNameError(null);
-        if (!isNameValid(value)) {
-          setNameError('Name can only contain letters and spaces.');
-        }
-        if (!value) {
-          setNameError('Required');
-        }
-        setSignup((prev) => ({ ...prev, name: value }));
+        validateName(value);
       },
       required: true,
       errorMessage: nameError || 'Required',
@@ -65,14 +80,7 @@ const SignupForm = ({ onClose, toggleForm }) => {
       placeholder: 'Enter your surname...',
       value: signup.surname,
       setValue: (value) => {
-        setSurnameError(null);
-        if (!isSurnameValid(value)) {
-          setSurnameError('Surname can only contain letters and spaces.');
-        }
-        if (!value) {
-          setSurnameError('Required');
-        }
-        setSignup((prev) => ({ ...prev, surname: value }));
+        validateSurname(value);
       },
       required: true,
       errorMessage: surnameError || 'Required',
@@ -92,7 +100,7 @@ const SignupForm = ({ onClose, toggleForm }) => {
         const users = await API.getUsers();
         const emailExists = users.some((user) => user.email === value);
         if (emailExists) {
-          setEmailError('Email already exists. Please use another email.');
+          setEmailError('User with such email already exists');
         }
       },
       required: true,
@@ -128,7 +136,7 @@ const SignupForm = ({ onClose, toggleForm }) => {
       const emailExists = users.some((user) => user.email === signup.email);
 
       if (emailExists) {
-        setEmailError('Email already exists. Please use another email.');
+        setEmailError('User with such email already exists');
       } else {
         const newUser = await API.createUser(signup);
         setIsLoggedIn(true);
