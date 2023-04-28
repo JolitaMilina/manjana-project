@@ -17,12 +17,28 @@ const SignupForm = ({ onClose, toggleForm }) => {
   const setUser = useSetRecoilState(userState);
   const setIsLoggedIn = useSetRecoilState(isLoggedIn);
 
-  const [emailError, setEmailError] = useState(null);
   const [nameError, setNameError] = useState(null);
   const [surnameError, setSurnameError] = useState(null);
+  const [emailError, setEmailError] = useState(null);
+  const [passwordError, setPasswordError] = useState(null);
 
   const isNameValid = (name) => /^[a-zA-Z\s]*$/.test(name);
   const isSurnameValid = (surname) => /^[a-zA-Z\s]*$/.test(surname);
+
+  const validatePassword = (password) => {
+    const hasNumber = /\d/;
+    const isValid = password.length >= 8 && hasNumber.test(password);
+
+    if (!password) {
+      setPasswordError('Required');
+    } else if (!isValid) {
+      setPasswordError(
+        'The password must contain at least 8 characters and have at least 1 number'
+      );
+    } else {
+      setPasswordError(null);
+    }
+  };
 
   const inputs = [
     {
@@ -34,6 +50,9 @@ const SignupForm = ({ onClose, toggleForm }) => {
         setNameError(null);
         if (!isNameValid(value)) {
           setNameError('Name can only contain letters and spaces.');
+        }
+        if (!value) {
+          setNameError('Required');
         }
         setSignup((prev) => ({ ...prev, name: value }));
       },
@@ -50,6 +69,9 @@ const SignupForm = ({ onClose, toggleForm }) => {
         if (!isSurnameValid(value)) {
           setSurnameError('Surname can only contain letters and spaces.');
         }
+        if (!value) {
+          setSurnameError('Required');
+        }
         setSignup((prev) => ({ ...prev, surname: value }));
       },
       required: true,
@@ -60,9 +82,18 @@ const SignupForm = ({ onClose, toggleForm }) => {
       label: 'Email',
       placeholder: 'Enter your email...',
       value: signup.email,
-      setValue: (value) => {
+      setValue: async (value) => {
         setEmailError(null);
+        if (!value) {
+          setEmailError('Required');
+        }
         setSignup((prev) => ({ ...prev, email: value }));
+
+        const users = await API.getUsers();
+        const emailExists = users.some((user) => user.email === value);
+        if (emailExists) {
+          setEmailError('Email already exists. Please use another email.');
+        }
       },
       required: true,
       errorMessage: emailError || 'Required',
@@ -72,13 +103,26 @@ const SignupForm = ({ onClose, toggleForm }) => {
       label: 'Password',
       placeholder: 'Enter your password...',
       value: signup.password,
-      setValue: (value) => setSignup((prev) => ({ ...prev, password: value })),
+      setValue: (value) => {
+        if (!value) {
+          setPasswordError('Required');
+        } else {
+          validatePassword(value);
+        }
+        setSignup((prev) => ({ ...prev, password: value }));
+      },
       required: true,
-      errorMessage: 'Required',
+      errorMessage: passwordError || 'Required',
     },
   ];
 
   const handleSubmit = async () => {
+    const hasErrors = nameError || surnameError || emailError || passwordError;
+
+    if (hasErrors) {
+      return;
+    }
+
     try {
       const users = await API.getUsers();
       const emailExists = users.some((user) => user.email === signup.email);
@@ -107,6 +151,7 @@ const SignupForm = ({ onClose, toggleForm }) => {
         ...((emailError && { Email: emailError }) || {}),
         ...((nameError && { Name: nameError }) || {}),
         ...((surnameError && { Surname: surnameError }) || {}),
+        ...((passwordError && { Password: passwordError }) || {}),
       }}
     >
       <StyledFormBottomMessage>

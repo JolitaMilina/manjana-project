@@ -28,6 +28,12 @@ const Form = ({ inputs, handleSubmit, buttonText, children, customErrors }) => {
     }
   };
 
+  const handleFocus = (label) => {
+    setNotValid((prevNotValid) =>
+      prevNotValid.filter((x) => x.label !== label)
+    );
+  };
+
   return (
     <StyledForm onSubmit={validateSubmit}>
       {inputs.map((input) => (
@@ -39,6 +45,7 @@ const Form = ({ inputs, handleSubmit, buttonText, children, customErrors }) => {
             value={input.value}
             setValue={input.setValue}
             placeholder={input.placeholder}
+            onFocus={() => handleFocus(input.label)}
           />
           {notValid.find((x) => x.label === input.label) ||
           (customErrors && customErrors[input.label]) ? (
