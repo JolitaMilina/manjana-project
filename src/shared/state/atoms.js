@@ -2,10 +2,10 @@ import { atom } from 'recoil';
 
 export const isLoggedIn = atom({
   key: 'isLoggedIn',
-  default: false,
+  default: localStorage.getItem('isLoggedIn') === 'true',
 });
 
 export const userState = atom({
   key: 'userState',
-  default: null,
+  default: localStorage.getItem('user') === 'null',
 });

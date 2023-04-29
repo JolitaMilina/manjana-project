@@ -1,8 +1,21 @@
+import { useRecoilState } from 'recoil';
+import { userState } from '../../shared/state/atoms';
+import { StyledContentContainer, StyledTodoListSectionWrapper, StyledTodoListTitle, StyledTodoListComponent } from "./styles";
+
 const TodoListPage = () => {
+
+  const [user] = useRecoilState(userState);
+  const userName = user.name;
+
   return (
-    <section>
-      <div style={{backgroundColor:'red', height:'100vh', width:'100vw'}}></div>
-    </section>
+    <StyledContentContainer>
+      <StyledTodoListSectionWrapper>
+        <StyledTodoListTitle>
+          <span>{userName}'s</span> TODO list
+        </StyledTodoListTitle>
+        <StyledTodoListComponent></StyledTodoListComponent>
+      </StyledTodoListSectionWrapper>
+    </StyledContentContainer>
   );
 };
 

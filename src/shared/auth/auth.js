@@ -6,8 +6,8 @@ const Auth = ({ children }) => {
   const [loggedIn, setLoggedIn] = useRecoilState(isLoggedIn);
   const [user, setUser] = useRecoilState(userState);
 
-  const filterUserId = (user) => {
-    return { id: user.id };
+  const filterUser = (user) => {
+    return { id: user.id, name: user.name };
   };
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const Auth = ({ children }) => {
     if (loggedIn) {
       localStorage.setItem('isLoggedIn', JSON.stringify(loggedIn));
       if (user) {
-        localStorage.setItem('user', JSON.stringify(filterUserId(user)));
+        localStorage.setItem('user', JSON.stringify(filterUser(user)));
       }
     } else {
       localStorage.removeItem('isLoggedIn');

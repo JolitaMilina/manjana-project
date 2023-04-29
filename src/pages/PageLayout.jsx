@@ -1,4 +1,4 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { Suspense } from "react";
 import Header from "./LayoutComponents/Header";
 import Footer from "./LayoutComponents/Footer";

@@ -4,6 +4,7 @@ import { useSetRecoilState } from 'recoil';
 import { API } from '../../../shared/api/api';
 import Auth from '../../../shared/auth/auth';
 import Form from '../../molecules/Form';
+import ICONS from '../../../shared/icons';
 import { StyledFormBottomMessage, StyledFormBottomButton } from './styles';
 
 const SignupForm = ({ onClose, toggleForm }) => {
@@ -72,6 +73,7 @@ const SignupForm = ({ onClose, toggleForm }) => {
       setValue: (value) => {
         validateName(value);
       },
+      icon: ICONS.user,
       required: true,
       errorMessage: nameError || 'Required',
     },
@@ -83,6 +85,7 @@ const SignupForm = ({ onClose, toggleForm }) => {
       setValue: (value) => {
         validateSurname(value);
       },
+      icon: ICONS.user,
       required: true,
       errorMessage: surnameError || 'Required',
     },
@@ -104,6 +107,7 @@ const SignupForm = ({ onClose, toggleForm }) => {
           setEmailError('User with such email already exists');
         }
       },
+      icon: ICONS.envelope,
       required: true,
       errorMessage: emailError || 'Required',
     },
@@ -120,6 +124,7 @@ const SignupForm = ({ onClose, toggleForm }) => {
         }
         setSignup((prev) => ({ ...prev, password: value }));
       },
+      icon: ICONS.lock,
       required: true,
       errorMessage: passwordError || 'Required',
     },
