@@ -16,6 +16,7 @@ const theme = {
     },
     background: {
       dark: '#141429',
+      main: '#aeb5cc',
       light: '#DCDFE9',
     },
     danger: {

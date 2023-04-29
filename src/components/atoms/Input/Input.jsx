@@ -15,7 +15,7 @@ const Input = (props) => {
     const handleOutsideInputClick = (e) => {
       if (!inputWrapperRef.current.contains(e.target)) {
         inputWrapperRef.current.style.borderColor = theme.palette.default.main;
-        iconRef.current.style.color = theme.palette.background.light;
+        iconRef.current.style.color = theme.palette.secondary.main;
       }
     };
 
@@ -31,7 +31,7 @@ const Input = (props) => {
     inputWrapperRef.current.style.borderWidth = '1px';
     inputWrapperRef.current.style.borderStyle = 'solid';
     inputRef.current.focus();
-    iconRef.current.style.color = theme.palette.secondary.main;
+    iconRef.current.style.color = theme.palette.background.light;
   };
 
   return (
@@ -43,6 +43,7 @@ const Input = (props) => {
         onChange={(e) => setValue(e.target.value)}
         ref={inputRef}
         placeholder={placeholder}
+        icon={icon}
       />
     </StyledInputWrapper>
   );

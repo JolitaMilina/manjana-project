@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Form from '../../molecules/Form';
+import ICONS from '../../../shared/icons'
 import { API } from '../../../shared/api/api';
 import Auth from '../../../shared/auth/auth';
 import { StyledFormBottomMessage, StyledFormBottomButton } from './styles';
@@ -36,6 +37,7 @@ const LoginForm = ({ onClose, toggleForm }) => {
       placeholder: 'Enter your email...',
       value: login.email,
       setValue: validateEmail,
+      icon: ICONS.envelope,
       required: true,
       errorMessage: emailError || 'Required',
     },
@@ -45,6 +47,7 @@ const LoginForm = ({ onClose, toggleForm }) => {
       placeholder: 'Enter your password...',
       value: login.password,
       setValue: validatePassword,
+      icon: ICONS.lock,
       required: true,
       errorMessage: passwordError || 'Required',
     },
