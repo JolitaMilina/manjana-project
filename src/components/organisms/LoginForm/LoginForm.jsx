@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import Form from '../../molecules/Form';
 import { API } from '../../../shared/api/api';
-import { useSetRecoilState } from 'recoil';
-import { isLoggedIn, userState } from '../../../shared/state/atoms';
+import Auth from '../../../shared/auth/auth';
 import { StyledFormBottomMessage, StyledFormBottomButton } from './styles';
 
 const LoginForm = ({ onClose, toggleForm }) => {
@@ -10,9 +9,6 @@ const LoginForm = ({ onClose, toggleForm }) => {
     email: '',
     password: '',
   });
-
-  const setUser = useSetRecoilState(userState);
-  const setIsLoggedIn = useSetRecoilState(isLoggedIn);
 
   const [emailError, setEmailError] = useState(null);
   const [passwordError, setPasswordError] = useState(null);
@@ -54,7 +50,7 @@ const LoginForm = ({ onClose, toggleForm }) => {
     },
   ];
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (loginFunction) => {
     validateEmail(login.email);
     validatePassword(login.password);
 
@@ -67,9 +63,7 @@ const LoginForm = ({ onClose, toggleForm }) => {
       const user = users.find((u) => u.email === login.email);
       if (user) {
         if (user.password === login.password) {
-          setUser(user);
-          setIsLoggedIn(true);
-          localStorage.setItem('isLoggedIn', true);
+          loginFunction(user);
           onClose();
           console.log(`Logged in as ${user.email}`);
         } else {
@@ -84,22 +78,26 @@ const LoginForm = ({ onClose, toggleForm }) => {
   };
 
   return (
-    <Form
-      inputs={inputs}
-      handleSubmit={handleSubmit}
-      buttonText={'Log In'}
-      customErrors={{
-        ...((emailError && { Email: emailError }) || {}),
-        ...((passwordError && { Password: passwordError }) || {}),
-      }}
-    >
-      <StyledFormBottomMessage>
-        Don't have an account?
-        <StyledFormBottomButton onClick={toggleForm}>
-          Sign Up!
-        </StyledFormBottomButton>
-      </StyledFormBottomMessage>
-    </Form>
+    <Auth>
+      {({ login: loginFunction }) => (
+        <Form
+          inputs={inputs}
+          handleSubmit={() => handleSubmit(loginFunction)}
+          buttonText={'Log In'}
+          customErrors={{
+            ...((emailError && { Email: emailError }) || {}),
+            ...((passwordError && { Password: passwordError }) || {}),
+          }}
+        >
+          <StyledFormBottomMessage>
+            Don't have an account?
+            <StyledFormBottomButton onClick={toggleForm}>
+              Sign Up!
+            </StyledFormBottomButton>
+          </StyledFormBottomMessage>
+        </Form>
+      )}
+    </Auth>
   );
 };
 

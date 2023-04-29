@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { isLoggedIn, userState } from '../../../shared/state/atoms';
 import { useSetRecoilState } from 'recoil';
 import { API } from '../../../shared/api/api';
+import Auth from '../../../shared/auth/auth';
 import Form from '../../molecules/Form';
 import { StyledFormBottomMessage, StyledFormBottomButton } from './styles';
 
@@ -124,7 +125,7 @@ const SignupForm = ({ onClose, toggleForm }) => {
     },
   ];
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (login) => {
     const hasErrors = nameError || surnameError || emailError || passwordError;
 
     if (hasErrors) {
@@ -139,9 +140,7 @@ const SignupForm = ({ onClose, toggleForm }) => {
         setEmailError('User with such email already exists');
       } else {
         const newUser = await API.createUser(signup);
-        setIsLoggedIn(true);
-        setUser(newUser);
-        localStorage.setItem('isLoggedIn', true);
+        login(newUser);
         onClose();
         console.log('User created successfully!');
       }
@@ -151,24 +150,28 @@ const SignupForm = ({ onClose, toggleForm }) => {
   };
 
   return (
-    <Form
-      inputs={inputs}
-      handleSubmit={handleSubmit}
-      buttonText={'Sign Up'}
-      customErrors={{
-        ...((emailError && { Email: emailError }) || {}),
-        ...((nameError && { Name: nameError }) || {}),
-        ...((surnameError && { Surname: surnameError }) || {}),
-        ...((passwordError && { Password: passwordError }) || {}),
-      }}
-    >
-      <StyledFormBottomMessage>
-        Already have an account?
-        <StyledFormBottomButton onClick={toggleForm}>
-          Log In!
-        </StyledFormBottomButton>
-      </StyledFormBottomMessage>
-    </Form>
+    <Auth>
+      {({ login }) => (
+        <Form
+          inputs={inputs}
+          handleSubmit={() => handleSubmit(login)}
+          buttonText={'Sign Up'}
+          customErrors={{
+            ...((emailError && { Email: emailError }) || {}),
+            ...((nameError && { Name: nameError }) || {}),
+            ...((surnameError && { Surname: surnameError }) || {}),
+            ...((passwordError && { Password: passwordError }) || {}),
+          }}
+        >
+          <StyledFormBottomMessage>
+            Already have an account?
+            <StyledFormBottomButton onClick={toggleForm}>
+              Log In!
+            </StyledFormBottomButton>
+          </StyledFormBottomMessage>
+        </Form>
+      )}
+    </Auth>
   );
 };
 
