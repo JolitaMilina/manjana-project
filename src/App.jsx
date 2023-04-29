@@ -1,9 +1,10 @@
 import { lazy } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import PageLayout from "./pages/PageLayout";
+import ProtectedRoute from "./shared/ProtectedRoute/ProtectedRoute";
 
-const HomePage = lazy(() => import("./pages/HomePage"));
-const TodoListPage = lazy(() => import("./pages/TodoListPage"));
+const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
+const TodoListPage = lazy(() => import("./pages/TodoListPage/TodoListPage"));
 
 function App() {
   const router = createBrowserRouter([
@@ -17,7 +18,11 @@ function App() {
         },
         {
           path: "todos",
-          element: <TodoListPage />,
+          element: (
+            <ProtectedRoute>
+              <TodoListPage />
+            </ProtectedRoute>
+          ),
         },
       ],
     },

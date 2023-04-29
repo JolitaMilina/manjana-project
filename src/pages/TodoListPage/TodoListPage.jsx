@@ -1,7 +1,7 @@
 const TodoListPage = () => {
   return (
     <section>
-      <h1>TODO</h1>
+      <div style={{backgroundColor:'red', height:'100vh', width:'100vw'}}></div>
     </section>
   );
 };

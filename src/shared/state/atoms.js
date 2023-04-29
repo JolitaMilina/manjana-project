@@ -2,7 +2,7 @@ import { atom } from 'recoil';
 
 export const isLoggedIn = atom({
   key: 'isLoggedIn',
-  default: JSON.parse(localStorage.getItem('isLoggedIn')) || false,
+  default: false,
 });
 
 export const userState = atom({
