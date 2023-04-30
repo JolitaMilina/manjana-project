@@ -1,6 +1,7 @@
 import { useRecoilState } from 'recoil';
 import { userState } from '../../shared/state/atoms';
-import { StyledContentContainer, StyledTodoListSectionWrapper, StyledTodoListTitle, StyledTodoListComponent } from "./styles";
+import TodoSystem from '../../components/organisms/TodoSystem/TodoSystem';
+import { StyledContentContainer, StyledTodoListSectionWrapper, StyledTodoListTitle, StyledTodoSystemContainer } from "./styles";
 
 const TodoListPage = () => {
 
@@ -13,7 +14,9 @@ const TodoListPage = () => {
         <StyledTodoListTitle>
           <span>{userName}'s</span> TODO list
         </StyledTodoListTitle>
-        <StyledTodoListComponent></StyledTodoListComponent>
+        <StyledTodoSystemContainer>
+          <TodoSystem />
+        </StyledTodoSystemContainer>
       </StyledTodoListSectionWrapper>
     </StyledContentContainer>
   );

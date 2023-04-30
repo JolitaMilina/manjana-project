@@ -17,7 +17,7 @@ export const StyledTodoListSectionWrapper = styled.div`
 `;
 
 export const StyledTodoListTitle = styled.h2`
-  padding: 7.5rem 0 5rem;
+  padding: 7.5rem 0 0;
   text-transform: capitalize;
   font-size: ${(props) => (props.theme.typography.h2.mobile.fontSize)};
   color: ${(props) => (props.theme.palette.default.light)};
@@ -31,4 +31,8 @@ export const StyledTodoListTitle = styled.h2`
   }
 `;
 
-export const StyledTodoListComponent = styled.div``;
+export const StyledTodoSystemContainer = styled.div`
+  max-width: 63.5rem;
+  width: calc(100% - 3rem);
+  margin: 0 1.5rem;
+`;
