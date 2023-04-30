@@ -2,10 +2,17 @@
   "todos": [
     {
       "id": 1,
-      "title": "Title 1",
+      "title": "John todo title",
       "description": "Description 1",
       "status": "In progress",
       "userId": 1
+    },
+    {
+      "id": 2,
+      "title": "Jane todo title",
+      "description": "Description 1",
+      "status": "Done",
+      "userId": 2
     }
   ],
   "users": [
