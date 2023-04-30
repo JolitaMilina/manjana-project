@@ -1,11 +1,12 @@
 import { StyledListItem } from "./styles";
 
-const ListItem = ({ title, action }) => {
+const ListItem = ({ title, action, statusIcon }) => {
     return (
-    <StyledListItem onClick={action}>
-        {title}
-    </StyledListItem>
+        <StyledListItem onClick={action}>
+            {statusIcon}
+            {title}
+        </StyledListItem>
     );
-  };
-  
-  export default ListItem;
+};
+
+export default ListItem;
