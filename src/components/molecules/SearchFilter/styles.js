@@ -3,19 +3,17 @@ import styled from 'styled-components';
 export const StyledSearchFilterWrapper = styled.div`
   margin: 1em;
   border-radius: 0.375em;
-
   box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%),
     0 0 0 1px rgb(10 10 10 / 2%);
 `;
 
 export const StyledTitleContainer = styled.div`
+  padding: 1em 1.25em;
+  border-radius: 0.375em 0.375em 0 0;
   background-color: ${(props) =>
     props.color
       ? props.theme.palette[props.color].main
       : props.theme.palette.default.main};
-
-  border-radius: 0.375em 0.375em 0 0;
-  padding: 1em 1.25em;
 
   h3 {
     font-size: 1.25em;
@@ -37,15 +35,13 @@ export const StyledFiltersContainer = styled.div`
   border-bottom: ${(props) => `1px solid ${props.theme.palette.default.main}`};
 
   a {
-    display: inline-block;
     padding: 0.5em;
-
+    display: inline-block;
     color: ${(props) => props.theme.palette.link.main};
     text-decoration: none;
     font-size: 0.875em;
-    line-height: 1.5;
     font-weight: 400;
-
+    line-height: 1.5;
     cursor: pointer;
 
     &:hover {
@@ -61,10 +57,10 @@ export const StyledFiltersContainer = styled.div`
 
 export const StyledItemsContainer = styled.div`
   p {
+    padding: 0.5em 0.75em;
     color: ${(props) => props.theme.palette.dark.main};
     border-bottom: ${(props) =>
-      `1px solid ${props.theme.palette.default.main}`};
-    padding: 0.5em 0.75em;
+    `1px solid ${props.theme.palette.default.main}`};
 
     span {
       display: flex;
@@ -75,16 +71,16 @@ export const StyledItemsContainer = styled.div`
 `;
 
 export const StyledPaginationContainer = styled.div`
+  padding: 0.5em 0.75em;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
-  padding: 0.5em 0.75em;
 
   button {
+    padding: 0.3em;
     border: none;
     background-color: ${(props) => props.theme.palette.default.main};
-    padding: 0.3em;
     cursor: pointer;
   }
 `;

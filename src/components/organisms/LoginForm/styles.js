@@ -5,7 +5,6 @@ export const StyledFormBottomMessage = styled.p`
   gap: 6px;
   font-size: 14px;
   line-height: ${(props) => props.theme.typography.body.lineHeight};
-  letter-spacing: ${(props) => props.theme.typography.body.letterSpacing};
   color: ${(props) => props.theme.palette.background.light};
 `;
 
@@ -13,7 +12,6 @@ export const StyledFormBottomButton = styled.button`
   border: none;
   font-size: 14px;
   line-height: ${(props) => props.theme.typography.body.lineHeight};
-  letter-spacing: ${(props) => props.theme.typography.body.letterSpacing};
   color: ${(props) => props.theme.palette.primary.main};
   background-color: transparent;
   cursor: pointer;

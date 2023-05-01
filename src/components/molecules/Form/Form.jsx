@@ -1,5 +1,4 @@
 import { useState } from 'react';
-
 import Input from '../../atoms/Input';
 import Button from '../../atoms/Button';
 import {
@@ -48,7 +47,7 @@ const Form = ({ inputs, handleSubmit, buttonText, children, customErrors }) => {
             onFocus={() => handleFocus(input.label)}
           />
           {notValid.find((x) => x.label === input.label) ||
-          (customErrors && customErrors[input.label]) ? (
+            (customErrors && customErrors[input.label]) ? (
             <StyledErrorMessage>
               {input.errorMessage || customErrors[input.label]}
             </StyledErrorMessage>

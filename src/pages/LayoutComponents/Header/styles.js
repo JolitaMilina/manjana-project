@@ -19,7 +19,7 @@ export const StyledNav = styled.nav`
   max-width: 1224px;
 `;
 
-export const StyledLogo = styled.div`
+export const StyledLogotype = styled.div`
   display: flex;
   justify-content: center;
   align-items: baseline;
@@ -27,14 +27,18 @@ export const StyledLogo = styled.div`
   cursor: pointer;
 
   span {
-   font-size: 30px;
-   color: ${(props) => (props.theme.palette.primary.main)};
+    color: ${(props) => (props.theme.palette.default.light)};
   }
 
   h1 {
     font-size: 30px;
-    color: ${(props) => (props.theme.palette.default.light)};
+    color: ${(props) => (props.theme.palette.primary.main)};
   }
+`;
+
+export const StyledLogo = styled.div`
+   font-size: 30px;
+   color: ${(props) => (props.theme.palette.primary.main)};
 `;
 
 export const StyledBtnContainer = styled.div``;

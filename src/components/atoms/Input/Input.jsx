@@ -1,6 +1,6 @@
-import { StyledInputWrapper, StyledIcon, StyledInput } from './styles';
-import { useTheme } from 'styled-components';
 import { useRef, useEffect } from 'react';
+import { useTheme } from 'styled-components';
+import { StyledInputWrapper, StyledIcon, StyledInput } from './styles';
 
 const Input = (props) => {
   const theme = useTheme();

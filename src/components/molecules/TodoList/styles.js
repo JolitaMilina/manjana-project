@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledTodoList = styled.ul`
-padding-right: 1rem;
+ padding-right: 1rem;
  display: flex;
  flex-direction: column;
  gap: 1rem;
@@ -23,7 +23,6 @@ padding-right: 1rem;
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
     background-color: ${(props) => (props.theme.palette.default.main)};
-
 }
 `;
 

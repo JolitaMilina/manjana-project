@@ -12,8 +12,8 @@ export const StyledLabel = styled.label`
   color: ${(props) => props.theme.palette.background.light};
   font-family: var(--font-family-nunito-sans);
   font-size: ${(props) => props.theme.typography.h4.mobile.fontSize};
-  line-height: ${(props) => props.theme.typography.h4.mobile.lineHeight};
   font-weight: 800;
+  line-height: ${(props) => props.theme.typography.h4.mobile.lineHeight};
   text-transform: uppercase;
 `;
 
@@ -27,10 +27,10 @@ export const StyledErrorMessage = styled.p`
 `;
 
 export const StyledFormBottomContainer = styled.div`
+  padding: 2rem 0px 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  padding: 2rem 0px 1rem;
 `;

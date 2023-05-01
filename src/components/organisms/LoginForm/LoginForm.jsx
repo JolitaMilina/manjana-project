@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Form from '../../molecules/Form';
-import ICONS from '../../../shared/icons'
+import ICONS from '../../../shared/icons';
 import { API } from '../../../shared/api/api';
 import Auth from '../../../shared/auth/auth';
 import { StyledFormBottomMessage, StyledFormBottomButton } from './styles';
@@ -63,7 +63,9 @@ const LoginForm = ({ onClose, toggleForm }) => {
 
     try {
       const users = await API.getUsers();
-      const user = users.find((u) => u.email === login.email);
+      const user = users.find(
+        (user) => user.email.toLowerCase() === login.email.toLowerCase()
+      );
       if (user) {
         if (user.password === login.password) {
           loginFunction(user);
@@ -82,10 +84,10 @@ const LoginForm = ({ onClose, toggleForm }) => {
 
   return (
     <Auth>
-      {({ login: loginFunction }) => (
+      {({ login }) => (
         <Form
           inputs={inputs}
-          handleSubmit={() => handleSubmit(loginFunction)}
+          handleSubmit={() => handleSubmit(login)}
           buttonText={'Log In'}
           customErrors={{
             ...((emailError && { Email: emailError }) || {}),

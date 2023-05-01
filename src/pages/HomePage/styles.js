@@ -16,13 +16,13 @@ export const StyledHeroSectionWrapper = styled.div`
 
 export const StyledHeroContainer = styled.div`
   margin: 0 24px;
-  max-width: 1224px;
+  padding: 11.5rem 0 5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 9rem 0 5rem;
   gap: 5em;
+  max-width: 1224px;
 
   h1 {
     color: ${(props) => props.theme.palette.default.light};
@@ -32,7 +32,7 @@ export const StyledHeroContainer = styled.div`
   }
 
   p {
-    color: ${(props) => props.theme.palette.default.light};
+    color: ${(props) => props.theme.palette.background.main};
     font-size: ${(props) => props.theme.typography.body.fontSize};
     line-height: ${(props) => props.theme.typography.body.lineHeight};
     text-align: center;
@@ -54,12 +54,16 @@ export const StyledHeroContainer = styled.div`
 `;
 
 export const StyledHeroContent = styled.div`
-  max-width: 808px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1.5em;
+  max-width: 808px;
+
+  span {
+    text-transform: capitalize;
+  }
 `;
 
 export const StyledHeroButtons = styled.div`
@@ -76,31 +80,30 @@ export const StyledHeroButtons = styled.div`
 `
 
 export const StyledFeaturesSectionWrapper = styled.div`
+  padding: 5em 0 8.5em;
   display: flex;
   flex-grow: 1;
   flex-direction: column;
   justify-content: top;
   align-items: center;
-  padding: 5em 0;
   background-color: ${(props) => props.theme.palette.background.dark};
 
   h2 {
-    color: ${(props) => props.theme.palette.default.light};
+    margin-bottom: 2em;
     justify-self: center;
     text-align: center;
-    letter-spacing: -0.01em;
-    margin-bottom: 2em;
     font-size: ${(props) => props.theme.typography.h2.mobile.fontSize};
     line-height: ${(props) => props.theme.typography.h2.mobile.lineHeight};
+    color: ${(props) => props.theme.palette.default.light};
   }
 `;
 
 export const StyledFeaturesContainer = styled.div`
   margin: 0 24px;
-  width: calc(100% - 48px);
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5em;
+  width: calc(100% - 48px);
   max-width: 500px;
 
   @media screen and (min-width: 1024px) {

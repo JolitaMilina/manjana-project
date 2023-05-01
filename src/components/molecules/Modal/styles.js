@@ -6,7 +6,6 @@ export const StyledOverlay = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
-
   background-color: ${(props) => props.theme.palette.overlay.dark};
 `;
 
@@ -16,7 +15,6 @@ export const StyledModalWrapper = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,25 +22,38 @@ export const StyledModalWrapper = styled.div`
 `;
 
 export const StyledModalTopContainer = styled.div`
+  padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-radius: 0.5rem 0.5rem 0 0;
-  padding: 1rem;
   background-color: ${(props) => props.theme.palette.default.main};
 `;
 
-export const StyledModalTitle = styled.h2`
+export const StyledModalTitle = styled.h4`
+  max-width: calc(100% - 44px);
+  overflow-wrap: break-word;
   color: ${(props) => props.theme.palette.default.light};
-  font-size: ${(props) => props.theme.palette.default.light};
+  font-size: ${(props) => props.theme.typography.h4.mobile.fontSize};
+  line-height: ${(props) => props.theme.typography.h4.mobile.lineHeight};
+
+  @media screen and (min-width: 768px) {
+    font-size: ${(props) => props.theme.typography.h4.tablet.fontSize};
+    line-height: ${(props) => props.theme.typography.h4.tablet.lineHeight};
+  }
+
+  @media screen and (min-width: 1024px) {
+    font-size: ${(props) => props.theme.typography.h4.desktop.fontSize};
+    line-height: ${(props) => props.theme.typography.h4.desktop.lineHeight};
+  }
 `;
 
 export const StyledModalBottomContainer = styled.div`
+  padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 0 0 0.5rem 0.5rem;
-  padding: 1rem;
   background-color: ${(props) => props.theme.palette.default.main};
 `;
 
@@ -59,13 +70,10 @@ export const SyledCloseButtonContainer = styled.div`
     align-items: center;
     width: 1.75rem;
     height: 1.75rem;
-
+    border-radius: 100%;
     font-size: 0.875rem;
     color: ${(props) => props.theme.palette.default.light};
     background-color: ${(props) => props.theme.palette.secondary.main};
-
-    border-radius: 100%;
-
     cursor: pointer;
 
     &:hover {
@@ -79,9 +87,6 @@ export const StyledModalContentContainer = styled.div`
 `;
 
 export const StyledModal = styled.div`
-  /* display: flex;
-  flex-direction: column;
-  gap: 1.5rem; */
   min-width: 320px;
   width: calc(100% - 3.5rem);
   border-radius: 0.5rem;
