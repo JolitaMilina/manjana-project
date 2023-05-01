@@ -25,9 +25,10 @@ export const StyledButton = styled.button`
   background-color: ${(props) =>
     props.outline === 'outline'
       ? 'transparent'
-      : props.inverted === 'inverted'
+      : props.inverted === 'inverted' && !props.className?.includes('selected')
         ? 'transparent'
         : props.theme.palette.primary.main};
+
   transition: all 100ms;
 
   &:active {
@@ -39,11 +40,8 @@ export const StyledButton = styled.button`
         : props.theme.palette.primary.dark};
   }
 
-  &:focus {
-    background-color: ${(props) =>
-    props.focused === 'focused'
-      ? props.theme.palette.secondary.main
-      : 'transparent'};
+  &.selected {
+    background-color: ${(props) => props.theme.palette.secondary.main};
   }
 
   @media screen and (min-width: 1024px) {
@@ -52,13 +50,12 @@ export const StyledButton = styled.button`
     }
 
     &:hover {
-    background-color: ${(props) =>
+      background-color: ${(props) =>
     props.outline === 'outline'
       ? props.theme.palette.secondary.main
       : props.inverted === 'inverted'
         ? props.theme.palette.secondary.main
         : props.theme.palette.primary.dark};
-
     }
   }
 `;

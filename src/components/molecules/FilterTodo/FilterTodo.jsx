@@ -1,10 +1,17 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Button from '../../atoms/Button';
 import { StyledFiltersContainer } from './styles';
 
 const FilterTodo = React.memo(({ onFilterChange }) => {
-  const [selectedFilter, setSelectedFilter] = useState('all');
+  const [selectedFilter, setSelectedFilter] = useState(() => {
+    const savedFilter = localStorage.getItem('todoFilter');
+    return savedFilter ? JSON.parse(savedFilter) : 'all';
+  });
+
+  useEffect(() => {
+    localStorage.setItem('todoFilter', JSON.stringify(selectedFilter));
+  }, [selectedFilter]);
 
   const handleFilterChange = (filterBy) => {
     setSelectedFilter(filterBy);
@@ -17,7 +24,6 @@ const FilterTodo = React.memo(({ onFilterChange }) => {
         action={() => handleFilterChange('all')}
         className={selectedFilter === 'all' ? 'selected' : ''}
         inverted='inverted'
-        focused='focused'
       >
         All
       </Button>
@@ -25,7 +31,6 @@ const FilterTodo = React.memo(({ onFilterChange }) => {
         action={() => handleFilterChange('In progress')}
         className={selectedFilter === 'In progress' ? 'selected' : ''}
         inverted='inverted'
-        focused='focused'
       >
         In progress
       </Button>
@@ -33,7 +38,6 @@ const FilterTodo = React.memo(({ onFilterChange }) => {
         action={() => handleFilterChange('Done')}
         className={selectedFilter === 'Done' ? 'selected' : ''}
         inverted='inverted'
-        focused='focused'
       >
         Done
       </Button>

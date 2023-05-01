@@ -6,48 +6,6 @@
       "description": "Description 1",
       "status": "In progress",
       "userId": 1
-    },
-    {
-      "userId": 1,
-      "title": "todo 1",
-      "status": "In progress",
-      "createdAt": 1682950172399,
-      "id": 2
-    },
-    {
-      "userId": 1,
-      "title": "todo2",
-      "status": "In progress",
-      "createdAt": 1682950174107,
-      "id": 3
-    },
-    {
-      "userId": 1,
-      "title": "todo3",
-      "status": "Done",
-      "createdAt": 1682950175722,
-      "id": 4
-    },
-    {
-      "userId": 1,
-      "title": "todo4",
-      "status": "In progress",
-      "createdAt": 1682950177215,
-      "id": 5
-    },
-    {
-      "userId": 1,
-      "title": "todo5",
-      "status": "Done",
-      "createdAt": 1682950179703,
-      "id": 6
-    },
-    {
-      "userId": 1,
-      "title": "something new",
-      "status": "Done",
-      "createdAt": 1682951240497,
-      "id": 7
     }
   ],
   "users": [
