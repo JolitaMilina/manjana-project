@@ -1,13 +1,13 @@
 import { StyledButton } from './styles';
 
-const Button = ({ children, action, outline, inverted, focused, size }) => {
+const Button = ({ children, action, outline, inverted, size, className }) => {
   return (
     <StyledButton
       outline={outline}
       inverted={inverted}
-      focused={focused}
       size={size}
       onClick={action}
+      className={className}
     >
       {children}
     </StyledButton>

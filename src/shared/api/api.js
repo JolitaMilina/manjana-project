@@ -34,13 +34,13 @@ class Api_instance {
     return response;
   }
 
-  async updateTodo(todo) {
-    const response = await client.put(`${this.baseUrl.todos}/${todo.id}`, todo);
+  async createTodo(todo) {
+    const response = await client.post(this.baseUrl.todos, todo);
     return response;
   }
 
-  async createTodo(todo) {
-    const response = await client.post(this.baseUrl.todos, todo);
+  async updateTodo(todo) {
+    const response = await client.put(`${this.baseUrl.todos}/${todo.id}`, todo);
     return response;
   }
 }
