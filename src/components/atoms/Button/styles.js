@@ -7,7 +7,11 @@ export const StyledButton = styled.button`
   border-color: ${(props) =>
     props.outline === 'outline'
       ? props.theme.palette.secondary.main
-      : 'transparent'};
+      : props.danger === 'danger'
+        ? props.theme.palette.danger.main
+        : props.warning === 'warning'
+          ? props.theme.palette.warning.main
+          : 'transparent'};
   border-radius: 0.375em;
   font-size: ${(props) =>
     props.size === 'large' ? '18px' : props.theme.typography.body.fontSize};
@@ -17,13 +21,13 @@ export const StyledButton = styled.button`
   text-align: center;
   cursor: pointer;
   color: ${(props) =>
-    props.outline === 'outline'
+    props.outline === 'outline' || props.danger === 'danger' || props.warning === 'warning'
       ? props.theme.palette.default.light
       : props.inverted === 'inverted'
         ? props.theme.palette.default.light
         : props.theme.palette.default.main};
   background-color: ${(props) =>
-    props.outline === 'outline'
+    props.outline === 'outline' || props.danger === 'danger' || props.warning === 'warning'
       ? 'transparent'
       : props.inverted === 'inverted' && !props.className?.includes('selected')
         ? 'transparent'
@@ -33,11 +37,13 @@ export const StyledButton = styled.button`
 
   &:active {
     background-color: ${(props) =>
-    props.outline === 'outline'
+    props.outline === 'outline' || props.danger === 'danger'
       ? props.theme.palette.secondary.main
-      : props.inverted === 'inverted'
-        ? props.theme.palette.secondary.main
-        : props.theme.palette.primary.dark};
+      : props.warning === 'warning'
+        ? props.theme.palette.warning.main
+        : props.inverted === 'inverted'
+          ? props.theme.palette.secondary.main
+          : props.theme.palette.primary.dark};
   }
 
   &.selected {
@@ -53,9 +59,13 @@ export const StyledButton = styled.button`
       background-color: ${(props) =>
     props.outline === 'outline'
       ? props.theme.palette.secondary.main
-      : props.inverted === 'inverted'
-        ? props.theme.palette.secondary.main
-        : props.theme.palette.primary.dark};
+      : props.danger === 'danger'
+        ? props.theme.palette.danger.main
+        : props.inverted === 'inverted'
+          ? props.theme.palette.secondary.main
+          : props.warning === 'warning'
+            ? props.theme.palette.warning.main
+            : props.theme.palette.primary.dark};
     }
   }
 `;

@@ -43,6 +43,11 @@ class Api_instance {
     const response = await client.put(`${this.baseUrl.todos}/${todo.id}`, todo);
     return response;
   }
+
+  async deleteTodo(todoId) {
+    const response = await client.delete(`${this.baseUrl.todos}/${todoId}`);
+    return response;
+  }
 }
 
 export const API = new Api_instance();

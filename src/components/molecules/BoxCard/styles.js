@@ -32,6 +32,7 @@ export const StyledBoxCardContent = styled.div`
     color: ${(props) => props.theme.palette.background.light};
     font-size: ${(props) => props.theme.typography.h4.mobile.fontSize};
     line-height: ${(props) => props.theme.typography.h4.mobile.lineHeight};
+    letter-spacing: ${(props) => props.theme.typography.h4.mobile.letterSpacing};
   }
 
   p {

@@ -16,14 +16,23 @@ export const StyledIcon = styled.span`
 
 export const StyledInput = styled.input`
   padding-left: calc(0.75em - 1px);
+  padding-right: calc(0.75em - 1px);
   width: 100%;
   outline: none;
   border: none;
   font-size: ${(props) => props.theme.typography.body.fontSize};
-  color: ${(props) => props.theme.palette.default.light};
+  color: ${(props) => props.theme.palette.background.light};
   background-color: transparent;
+  resize: none;
 
   &::placeholder {
     color: ${(props) => props.theme.palette.background.main};
   }
+
+  ${(props) =>
+    props.as === 'textarea' &&
+    `
+      padding-top: calc(0.625rem - 1px);
+      height: 225px;
+    `}
 `;

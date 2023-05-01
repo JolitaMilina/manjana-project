@@ -12,6 +12,7 @@ const AddTodo = ({ onAddTodo }) => {
             onAddTodo({
                 title: newTodoTitle.trim(),
                 status: 'In progress',
+                description: '',
             });
             setNewTodoTitle('');
         }

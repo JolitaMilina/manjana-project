@@ -15,9 +15,9 @@ const SignupForm = ({ onClose, toggleForm }) => {
 
   const createNewTodo = async (userId) => {
     const newTodo = {
-      title: 'Your first TODO!',
-      description: 'Hooray! You have successfully signed up! :)',
-      status: 'Done',
+      title: "Your first TODO!",
+      description: "Hooray! Welcome to our app!\n\nTo help you get started, we've created your first TODO item.\nFeel free to edit or delete it. We're excited to help you stay productive!\n\n- todoMañana Team",
+      status: "Done",
       userId: userId,
     };
     try {
