@@ -3,12 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import Auth from '../../../shared/auth/auth';
 import Button from '../../../components/atoms/Button/Button.jsx';
 import ICONS from '../../../shared/icons';
-import Modal from '../../../components/molecules/Modal/Modal';
 import SignupForm from '../../../components/organisms/SignupForm/SignupForm';
 import LoginForm from '../../../components/organisms/LoginForm/LoginForm';
+import Modal from '../../../components/molecules/Modal/Modal';
 import {
   StyledHeader,
   StyledNav,
+  StyledLogotype,
   StyledLogo,
   StyledBtnContainer,
   StyledLogoutButtonContainer,
@@ -41,10 +42,11 @@ const Header = () => {
         <>
           <StyledHeader>
             <StyledNav>
-              <StyledLogo onClick={handleNavigateLogo}>
-                <span>{ICONS.logo}</span>
-                <h1>mañana</h1>
-              </StyledLogo>
+              <StyledLogotype onClick={handleNavigateLogo}>
+                <StyledLogo>{ICONS.logo}</StyledLogo>
+                <h1>todo<span>Mañana</span>
+                </h1>
+              </StyledLogotype>
               <StyledBtnContainer>
                 {loggedIn && (
                   <StyledLogoutButtonContainer>

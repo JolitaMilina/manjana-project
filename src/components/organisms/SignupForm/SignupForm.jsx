@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import { isLoggedIn, userState } from '../../../shared/state/atoms';
-import { useSetRecoilState } from 'recoil';
 import { API } from '../../../shared/api/api';
 import Auth from '../../../shared/auth/auth';
 import Form from '../../molecules/Form';
@@ -13,11 +11,22 @@ const SignupForm = ({ onClose, toggleForm }) => {
     surname: '',
     email: '',
     password: '',
-    todos: [],
   });
 
-  const setUser = useSetRecoilState(userState);
-  const setIsLoggedIn = useSetRecoilState(isLoggedIn);
+  const createNewTodo = async (userId) => {
+    const newTodo = {
+      title: 'Your first TODO!',
+      description: 'Hooray! You have successfully signed up! :)',
+      status: 'Done',
+      userId: userId,
+    };
+    try {
+      await API.createTodo(newTodo);
+      console.log('New todo created successfully!');
+    } catch (error) {
+      console.error('Error creating new todo:', error);
+    }
+  };
 
   const [nameError, setNameError] = useState(null);
   const [surnameError, setSurnameError] = useState(null);
@@ -132,19 +141,17 @@ const SignupForm = ({ onClose, toggleForm }) => {
 
   const handleSubmit = async (login) => {
     const hasErrors = nameError || surnameError || emailError || passwordError;
-
     if (hasErrors) {
       return;
     }
-
     try {
       const users = await API.getUsers();
       const emailExists = users.some((user) => user.email === signup.email);
-
       if (emailExists) {
         setEmailError('User with such email already exists');
       } else {
         const newUser = await API.createUser(signup);
+        await createNewTodo(newUser.id);
         login(newUser);
         onClose();
         console.log('User created successfully!');

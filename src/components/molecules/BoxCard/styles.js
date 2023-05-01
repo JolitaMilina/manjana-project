@@ -35,7 +35,7 @@ export const StyledBoxCardContent = styled.div`
   }
 
   p {
-    color: ${(props) => props.theme.palette.background.light};
+    color: ${(props) => props.theme.palette.background.main};
     font-size: ${(props) => props.theme.typography.body.fontSize};
     line-height: ${(props) => props.theme.typography.body.lineHeight};
   }

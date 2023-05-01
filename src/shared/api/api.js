@@ -38,6 +38,11 @@ class Api_instance {
     const response = await client.put(`${this.baseUrl.todos}/${todo.id}`, todo);
     return response;
   }
+
+  async createTodo(todo) {
+    const response = await client.post(this.baseUrl.todos, todo);
+    return response;
+  }
 }
 
 export const API = new Api_instance();

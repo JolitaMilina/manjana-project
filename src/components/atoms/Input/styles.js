@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const StyledInputWrapper = styled.div`
-  display: flex;
   padding: calc(0.625rem - 1px) calc(0.75rem - 1px);
+  display: flex;
   border-width: 1px;
   border-style: solid;
   border-color: ${(props) => props.theme.palette.default.main};
@@ -15,10 +15,10 @@ export const StyledIcon = styled.span`
 `;
 
 export const StyledInput = styled.input`
+  padding-left: calc(0.75em - 1px);
   width: 100%;
   outline: none;
   border: none;
-  padding-left: calc(0.75em - 1px);
   font-size: ${(props) => props.theme.typography.body.fontSize};
   color: ${(props) => props.theme.palette.default.light};
   background-color: transparent;

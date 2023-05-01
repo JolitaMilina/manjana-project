@@ -21,6 +21,12 @@ const Auth = ({ children }) => {
   }, []);
 
   useEffect(() => {
+    if (!loggedIn) {
+      localStorage.setItem('todoFilter', JSON.stringify('all'))
+    }
+  }, [loggedIn]);
+
+  useEffect(() => {
     if (loggedIn) {
       localStorage.setItem('isLoggedIn', JSON.stringify(loggedIn));
       if (user) {

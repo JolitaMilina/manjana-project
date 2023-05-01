@@ -4,7 +4,7 @@ import { StyledFooter } from "./styles";
 const Footer = () => {
   return (
     <StyledFooter>
-      <p>BestTODOapp&#169;2023</p>
+      <p>todoMañana&#169;{new Date().getFullYear()}</p>
     </StyledFooter>
   );
 };

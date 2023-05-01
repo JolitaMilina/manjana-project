@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { useNavigate } from 'react-router-dom';
-import { isLoggedIn } from "../../shared/state/atoms";
+import { isLoggedIn, userState } from "../../shared/state/atoms";
 import Button from '../../components/atoms/Button/Button';
 import ICONS from '../../shared/icons';
 import BoxCard from '../../components/molecules/BoxCard/BoxCard';
-import Modal from '../../components/molecules/Modal/Modal';
 import SignupForm from '../../components/organisms/SignupForm/SignupForm';
 import LoginForm from '../../components/organisms/LoginForm/LoginForm';
+import Modal from '../../components/molecules/Modal/Modal';
 import {
   StyledContentContainer,
   StyledFeaturesSectionWrapper,
@@ -23,6 +23,7 @@ const HomePage = () => {
   const [showSignUpModal, setShowSignUpModal] = useState(false);
 
   const [loggedIn] = useRecoilState(isLoggedIn);
+  const [user] = useRecoilState(userState);
 
   const navigate = useNavigate();
 
@@ -46,11 +47,22 @@ const HomePage = () => {
         <StyledHeroSectionWrapper>
           <StyledHeroContainer>
             <StyledHeroContent>
-              <h1>Best TODO app in Town!</h1>
-              <p>
-                Use this marvellous tool to structurize <br></br> your day and
-                gain back control of your life!
-              </p>
+              {!loggedIn && (
+                <>
+                  <h1>Best todo app in Town!</h1>
+                  <p>
+                    Don't leave it until mañana,<br></br>use this marvellous tool and do it today!
+                  </p>
+                </>
+              )}
+              {loggedIn && (
+                <>
+                  <h1>Hi there, <span>{user && (user.name)}</span>!</h1>
+                  <p>
+                    Are you ready to sort some todos out <br></br> or will you leave it until 'mañana'?
+                  </p>
+                </>
+              )}
             </StyledHeroContent>
             <StyledHeroButtons>
               {loggedIn && (
