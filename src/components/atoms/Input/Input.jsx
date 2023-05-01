@@ -5,7 +5,7 @@ import { StyledInputWrapper, StyledIcon, StyledInput } from './styles';
 const Input = (props) => {
   const theme = useTheme();
 
-  const { type, value, setValue, icon, placeholder } = props;
+  const { type, value, setValue, icon, placeholder, maxLength, multiline } = props;
 
   const inputWrapperRef = useRef();
   const inputRef = useRef();
@@ -37,14 +37,27 @@ const Input = (props) => {
   return (
     <StyledInputWrapper {...props} ref={inputWrapperRef} onClick={handleClick}>
       <StyledIcon ref={iconRef}>{icon && icon}</StyledIcon>
-      <StyledInput
-        type={type || 'text'}
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        ref={inputRef}
-        placeholder={placeholder}
-        icon={icon}
-      />
+      {multiline ? (
+        <StyledInput
+          as="textarea"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          ref={inputRef}
+          placeholder={placeholder}
+          icon={icon}
+          maxLength={maxLength}
+        />
+      ) : (
+        <StyledInput
+          type={type || 'text'}
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          ref={inputRef}
+          placeholder={placeholder}
+          icon={icon}
+          maxLength={maxLength}
+        />
+      )}
     </StyledInputWrapper>
   );
 };

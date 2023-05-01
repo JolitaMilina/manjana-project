@@ -36,15 +36,18 @@ export const StyledModalTitle = styled.h4`
   color: ${(props) => props.theme.palette.default.light};
   font-size: ${(props) => props.theme.typography.h4.mobile.fontSize};
   line-height: ${(props) => props.theme.typography.h4.mobile.lineHeight};
+  letter-spacing: ${(props) => props.theme.typography.h4.mobile.letterSpacing};
 
   @media screen and (min-width: 768px) {
     font-size: ${(props) => props.theme.typography.h4.tablet.fontSize};
     line-height: ${(props) => props.theme.typography.h4.tablet.lineHeight};
+    letter-spacing: ${(props) => props.theme.typography.h4.tablet.letterSpacing};
   }
 
   @media screen and (min-width: 1024px) {
     font-size: ${(props) => props.theme.typography.h4.desktop.fontSize};
     line-height: ${(props) => props.theme.typography.h4.desktop.lineHeight};
+    letter-spacing: ${(props) => props.theme.typography.h4.desktop.letterSpacing};
   }
 `;
 

@@ -21,11 +21,9 @@ const theme = {
     },
     danger: {
       main: '#CF484B',
-      light: '#D96D6F',
     },
-    success: {
-      main: '#38C0A8',
-      light: '#71D6C4',
+    warning: {
+      main: '#3a7ac3',
     },
     overlay: {
       dark: 'rgba(8, 8, 16, 0.6)',
@@ -87,14 +85,17 @@ const theme = {
       mobile: {
         fontSize: '18px',
         lineHeight: '22px',
+        letterSpacing: '4%',
       },
       tablet: {
         fontSize: '24px',
         lineHeight: '28px',
+        letterSpacing: '4%',
       },
       desktop: {
         fontSize: '24px',
         lineHeight: '28px',
+        letterSpacing: '4%',
       },
     },
     body: {

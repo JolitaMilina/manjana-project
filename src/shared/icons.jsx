@@ -7,6 +7,7 @@ const ICONS = {
   addUser: <i className="fa-solid fa-user-plus"></i>,
   list: <i className="fa-solid fa-rectangle-list"></i>,
   sort: <i className="fa-solid fa-sort"></i>,
+  edit: <i className="fa-solid fa-pen-to-square"></i>,
   checkDone: <i className="fa-solid fa-square-check"></i>,
   checkNone: <i className="fa-solid fa-square"></i>,
 };

@@ -8,12 +8,14 @@ export const StyledFormControl = styled.div`
 
 export const StyledLabel = styled.label`
   margin-bottom: 0.5rem;
+  margin-left: 0.25rem;
   display: block;
   color: ${(props) => props.theme.palette.background.light};
   font-family: var(--font-family-nunito-sans);
   font-size: ${(props) => props.theme.typography.h4.mobile.fontSize};
   font-weight: 800;
   line-height: ${(props) => props.theme.typography.h4.mobile.lineHeight};
+  letter-spacing: ${(props) => props.theme.typography.h4.mobile.letterSpacing};
   text-transform: uppercase;
 `;
 

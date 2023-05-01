@@ -35,7 +35,8 @@ li,
 a,
 button,
 input,
-div {
+div,
+textarea {
   font-family: var(--font-family-open-sans);
 }
 

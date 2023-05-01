@@ -23,7 +23,7 @@ export const StyledLogotype = styled.div`
   display: flex;
   justify-content: center;
   align-items: baseline;
-  gap: 12px;
+  gap: 8px;
   cursor: pointer;
 
   span {
@@ -31,14 +31,26 @@ export const StyledLogotype = styled.div`
   }
 
   h1 {
-    font-size: 30px;
+    font-size: 24px;
     color: ${(props) => (props.theme.palette.primary.main)};
+  }
+
+  @media screen and (min-width: 430px) {
+    gap: 12px;
+
+    h1 {
+    font-size: 30px;
+   }
   }
 `;
 
 export const StyledLogo = styled.div`
-   font-size: 30px;
+   font-size: 24px;
    color: ${(props) => (props.theme.palette.primary.main)};
+
+   @media screen and (min-width: 430px) {
+    font-size: 30px;
+  }
 `;
 
 export const StyledBtnContainer = styled.div``;

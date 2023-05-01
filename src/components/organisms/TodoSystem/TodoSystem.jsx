@@ -4,7 +4,7 @@ import { useRecoilState } from 'recoil';
 import { API } from '../../../shared/api/api';
 import { userState } from '../../../shared/state/atoms';
 import AddTodo from '../../molecules/AddTodo';
-import TodoList from '../../molecules/TodoList';
+import TodoList from '../../organisms/TodoList';
 import FilterTodo from '../../molecules/FilterTodo';
 import { StyledTodoSystemWrapper, StyledTodoContainer } from './styles';
 
@@ -34,7 +34,7 @@ const TodoSystem = () => {
                 userId,
                 title: newTodo.title,
                 status: newTodo.status,
-                createdAt: Date.now(),
+                description: newTodo.description,
             });
             queryClient.setQueryData(['todos', userId, filter], (oldData) => {
                 if (oldData === undefined) {
