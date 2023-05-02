@@ -26,7 +26,7 @@ const AddTodo = ({ onAddTodo }) => {
                 setValue={setNewTodoTitle}
                 icon={ICONS.add}
                 placeholder='Add new todo'
-                maxLength={25}
+                maxLength={40}
                 onKeyDown={() => {
                     addNewTodo();
                 }}

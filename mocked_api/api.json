@@ -1,4 +1,55 @@
 {
-  "todos": [],
-  "users": []
+  "todos": [
+    {
+      "title": "Atmušt kregždės pirkėją iš Tomelio",
+      "description": "Neblogas prijomas būtų nukirpt pravodkę",
+      "status": "Done",
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "title": "Nusukt mokesčius",
+      "status": "Done",
+      "description": "Ne mano reikalas kaip",
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "title": "Tradiciškai prainformuot VMI",
+      "status": "In progress",
+      "description": "Šią savaitę ant pirmo pigiai pardavusio pitaką",
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "title": "Išmušt farą",
+      "status": "In progress",
+      "description": "Irgi Tomeliui",
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "title": "Perpanaudot tepalus",
+      "status": "Done",
+      "description": "Tautovežiui arba cvekui",
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "title": "Padirbt pamainą strojkėse",
+      "status": "In progress",
+      "description": "Bent porą nelegaliai",
+      "id": 6
+    }
+  ],
+  "users": [
+    {
+      "name": "Perekūpas",
+      "surname": "Nebrangiai",
+      "email": "pigiaiderinu@yahoo.com",
+      "password": "10000000",
+      "id": 1
+    }
+  ]
 }
