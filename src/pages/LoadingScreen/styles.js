@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import fallbackImage from "../../assets/Destytojas.jpg";
+import styled from 'styled-components';
+import fallbackImage from '../../assets/images/pattern.png';
 
 export const StyledPhotoContainer = styled.div`
   width: 100%;

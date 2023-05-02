@@ -40,16 +40,16 @@ export const StyledHeroContainer = styled.div`
 
   @media screen and (min-width: 768px) {
     h1 {
-    font-size: ${(props) => props.theme.typography.h1.tablet.fontSize};
-    line-height: ${(props) => props.theme.typography.h1.tablet.lineHeight};
-   }
+      font-size: ${(props) => props.theme.typography.h1.tablet.fontSize};
+      line-height: ${(props) => props.theme.typography.h1.tablet.lineHeight};
+    }
   }
 
   @media screen and (min-width: 1024px) {
     h1 {
-    font-size: ${(props) => props.theme.typography.h1.desktop.fontSize};
-    line-height: ${(props) => props.theme.typography.h1.desktop.lineHeight};
-   }
+      font-size: ${(props) => props.theme.typography.h1.desktop.fontSize};
+      line-height: ${(props) => props.theme.typography.h1.desktop.lineHeight};
+    }
   }
 `;
 
@@ -77,7 +77,7 @@ export const StyledHeroButtons = styled.div`
       display: none;
     }
   }
-`
+`;
 
 export const StyledFeaturesSectionWrapper = styled.div`
   padding: 5em 0 8.5em;

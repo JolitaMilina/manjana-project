@@ -1,20 +1,4 @@
 {
-  "todos": [
-    {
-      "userId": 1,
-      "title": "TODO ITEM 1",
-      "status": "In progress",
-      "description": "",
-      "id": 1
-    }
-  ],
-  "users": [
-    {
-      "id": 1,
-      "name": "John",
-      "surname": "Smith",
-      "email": "john@email.com",
-      "password": "password123"
-    }
-  ]
+  "todos": [],
+  "users": []
 }
