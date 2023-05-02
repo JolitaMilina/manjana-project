@@ -69,7 +69,7 @@ const EditTodo = ({ todo, onUpdateTodo, onDeleteTodo, onClose }) => {
               value={title}
               setValue={setTitle}
               placeholder='Enter your TODO title...'
-              maxLength={25}
+              maxLength={40}
             />
             {!isTitleValid && <StyledErrorMessage>Required</StyledErrorMessage>}
           </StyledInput>
