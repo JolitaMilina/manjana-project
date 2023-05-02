@@ -1,10 +1,21 @@
 import { StyledButton } from './styles';
 
-const Button = ({ children, action, outline, inverted, danger, warning, size, className }) => {
+const Button = ({
+  children,
+  action,
+  outline,
+  inverted,
+  success,
+  danger,
+  warning,
+  size,
+  className,
+}) => {
   return (
     <StyledButton
       outline={outline}
       inverted={inverted}
+      success={success}
       danger={danger}
       warning={warning}
       size={size}

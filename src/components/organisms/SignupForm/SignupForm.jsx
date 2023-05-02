@@ -15,14 +15,14 @@ const SignupForm = ({ onClose, toggleForm }) => {
 
   const createNewTodo = async (userId) => {
     const newTodo = {
-      title: "Your first TODO!",
-      description: "Hooray! Welcome to our app!\n\nTo help you get started, we've created your first TODO item.\nFeel free to edit or delete it. We're excited to help you stay productive!\n\n- todoMañana Team",
-      status: "Done",
+      title: 'Your first TODO!',
+      description:
+        "Hooray! Welcome to our app!\n\nTo help you get started, we've created your first TODO item.\nFeel free to edit or delete it. We're excited to help you stay productive!\n\n- todoMañana Team",
+      status: 'Done',
       userId: userId,
     };
     try {
       await API.createTodo(newTodo);
-      console.log('New todo created successfully!');
     } catch (error) {
       console.error('Error creating new todo:', error);
     }
@@ -154,7 +154,6 @@ const SignupForm = ({ onClose, toggleForm }) => {
         await createNewTodo(newUser.id);
         login(newUser);
         onClose();
-        console.log('User created successfully!');
       }
     } catch (error) {
       console.error(error);
