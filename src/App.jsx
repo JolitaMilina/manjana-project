@@ -1,23 +1,23 @@
-import { lazy } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import PageLayout from "./pages/PageLayout";
-import ProtectedRoute from "./shared/ProtectedRoute/ProtectedRoute";
+import { lazy, useEffect } from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import PageLayout from './pages/PageLayout';
+import ProtectedRoute from './shared/ProtectedRoute/ProtectedRoute';
 
-const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
-const TodoListPage = lazy(() => import("./pages/TodoListPage/TodoListPage"));
+const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
+const TodoListPage = lazy(() => import('./pages/TodoListPage/TodoListPage'));
 
 function App() {
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: '/',
       element: <PageLayout />,
       children: [
         {
-          path: "",
+          path: '',
           element: <HomePage />,
         },
         {
-          path: "todos",
+          path: 'todos',
           element: (
             <ProtectedRoute>
               <TodoListPage />
@@ -27,6 +27,14 @@ function App() {
       ],
     },
   ]);
+
+  const useScrollToTop = () => {
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [pathname]);
+  };
 
   return <RouterProvider router={router} />;
 }
