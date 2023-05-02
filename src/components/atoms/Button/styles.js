@@ -7,11 +7,9 @@ export const StyledButton = styled.button`
   border-color: ${(props) =>
     props.outline === 'outline'
       ? props.theme.palette.secondary.main
-      : props.danger === 'danger'
-        ? props.theme.palette.danger.main
-        : props.warning === 'warning'
-          ? props.theme.palette.warning.main
-          : 'transparent'};
+      : props.warning === 'warning'
+      ? props.theme.palette.warning.main
+      : 'transparent'};
   border-radius: 0.375em;
   font-size: ${(props) =>
     props.size === 'large' ? '18px' : props.theme.typography.body.fontSize};
@@ -21,29 +19,40 @@ export const StyledButton = styled.button`
   text-align: center;
   cursor: pointer;
   color: ${(props) =>
-    props.outline === 'outline' || props.danger === 'danger' || props.warning === 'warning'
+    props.outline === 'outline' ||
+    props.danger === 'danger' ||
+    props.warning === 'warning' ||
+    props.success === 'success'
       ? props.theme.palette.default.light
       : props.inverted === 'inverted'
-        ? props.theme.palette.default.light
-        : props.theme.palette.default.main};
+      ? props.theme.palette.default.light
+      : props.theme.palette.default.main};
   background-color: ${(props) =>
-    props.outline === 'outline' || props.danger === 'danger' || props.warning === 'warning'
+    props.outline === 'outline' || props.warning === 'warning'
       ? 'transparent'
+      : props.danger === 'danger'
+      ? props.theme.palette.danger.main
       : props.inverted === 'inverted' && !props.className?.includes('selected')
-        ? 'transparent'
-        : props.theme.palette.primary.main};
+      ? 'transparent'
+      : props.success === 'success'
+      ? props.theme.palette.success.main
+      : props.theme.palette.primary.main};
 
   transition: all 100ms;
 
   &:active {
     background-color: ${(props) =>
-    props.outline === 'outline' || props.danger === 'danger'
-      ? props.theme.palette.secondary.main
-      : props.warning === 'warning'
+      props.outline === 'outline'
+        ? props.theme.palette.secondary.main
+        : props.warning === 'warning'
         ? props.theme.palette.warning.main
+        : props.danger === 'danger'
+        ? props.theme.palette.danger.light
         : props.inverted === 'inverted'
-          ? props.theme.palette.secondary.main
-          : props.theme.palette.primary.dark};
+        ? props.theme.palette.secondary.main
+        : props.success === 'success'
+        ? props.theme.palette.success.light
+        : props.theme.palette.primary.dark};
   }
 
   &.selected {
@@ -57,15 +66,17 @@ export const StyledButton = styled.button`
 
     &:hover {
       background-color: ${(props) =>
-    props.outline === 'outline'
-      ? props.theme.palette.secondary.main
-      : props.danger === 'danger'
-        ? props.theme.palette.danger.main
-        : props.inverted === 'inverted'
+        props.outline === 'outline'
+          ? props.theme.palette.secondary.main
+          : props.danger === 'danger'
+          ? props.theme.palette.danger.light
+          : props.inverted === 'inverted'
           ? props.theme.palette.secondary.main
           : props.warning === 'warning'
-            ? props.theme.palette.warning.main
-            : props.theme.palette.primary.dark};
+          ? props.theme.palette.warning.main
+          : props.success === 'success'
+          ? props.theme.palette.success.light
+          : props.theme.palette.primary.dark};
     }
   }
 `;

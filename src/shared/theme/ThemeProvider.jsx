@@ -14,16 +14,22 @@ const theme = {
       main: '#534581',
       light: '#635299',
     },
+    success: {
+      main: '#38c0a8',
+      light: '#41c8b0',
+    },
+    warning: {
+      main: '#3a7ac3',
+    },
+    danger: {
+      dark: '#2d222e',
+      main: '#CF484B',
+      light: '#d25457',
+    },
     background: {
       dark: '#141429',
       main: '#aeb5cc',
       light: '#DCDFE9',
-    },
-    danger: {
-      main: '#CF484B',
-    },
-    warning: {
-      main: '#3a7ac3',
     },
     overlay: {
       dark: 'rgba(8, 8, 16, 0.6)',

@@ -9,20 +9,16 @@ import {
   StyledInputLabel,
   StyledErrorMessage,
   StyledButtonContainer,
+  StyledNotificationContainer,
+  StyledNotificationMessage,
+  StyledNotificationButtons,
 } from './styles';
 
 const EditTodo = ({ todo, onUpdateTodo, onDeleteTodo, onClose }) => {
   const [title, setTitle] = useState(todo.title);
   const [description, setDescription] = useState(todo.description);
   const [isTitleValid, setIsTitleValid] = useState(true);
-
-  const handleTitleChange = (e) => {
-    setTitle(e.target.value);
-  };
-
-  const handleDescriptionChange = (e) => {
-    setDescription(e.target.value);
-  };
+  const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
 
   useEffect(() => {
     setIsTitleValid(title.trim().length > 0);
@@ -48,10 +44,18 @@ const EditTodo = ({ todo, onUpdateTodo, onDeleteTodo, onClose }) => {
     onClose();
   };
 
-  const handleDeleteTodo = async () => {
+  const handleDeleteTodo = () => {
+    setShowDeleteConfirmation(true);
+  };
+
+  const handleConfirmDelete = async () => {
     await API.deleteTodo(todo.id);
     onDeleteTodo(todo);
     onClose();
+  };
+
+  const handleCloseDeleteConfirmation = () => {
+    setShowDeleteConfirmation(false);
   };
 
   return (
@@ -79,6 +83,24 @@ const EditTodo = ({ todo, onUpdateTodo, onDeleteTodo, onClose }) => {
             />
           </StyledInput>
         </StyledInputWrapper>
+        {showDeleteConfirmation && (
+          <StyledNotificationContainer>
+            <StyledNotificationMessage>
+              Are you sure you want to delete this TODO?
+            </StyledNotificationMessage>
+            <StyledNotificationButtons>
+              <Button danger={'danger'} action={handleConfirmDelete}>
+                Yes
+              </Button>
+              <Button
+                success={'success'}
+                action={handleCloseDeleteConfirmation}
+              >
+                No
+              </Button>
+            </StyledNotificationButtons>
+          </StyledNotificationContainer>
+        )}
         <StyledButtonContainer>
           <Button action={handleDeleteTodo} warning='warning'>
             Delete Todo

@@ -2,9 +2,9 @@
   "todos": [
     {
       "userId": 1,
-      "title": "John's todotestasdasd",
-      "status": "Done",
-      "description": "Very good todo, much dtestoneasdasd",
+      "title": "TODO ITEM 1",
+      "status": "In progress",
+      "description": "",
       "id": 1
     }
   ],

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const StyledEditTodoWrapper = styled.div`
   margin-bottom: 1rem;
@@ -43,6 +43,36 @@ export const StyledErrorMessage = styled.p`
   line-height: ${(props) => props.theme.typography.legal.lineHeight};
 `;
 
+export const StyledNotificationContainer = styled.div`
+  width: 100%;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  gap: 2rem;
+  border: 1px solid ${(props) => props.theme.palette.danger.main};
+  border-radius: 0.5rem;
+  background-color: ${(props) => props.theme.palette.danger.dark};
+
+  @media screen and (min-width: 768px) {
+    width: 80%;
+  }
+`;
+
+export const StyledNotificationMessage = styled.p`
+  color: ${(props) => props.theme.palette.background.light};
+  font-size: ${(props) => props.theme.typography.body.fontSize};
+  line-height: ${(props) => props.theme.typography.body.lineHeight};
+  text-align: center;
+`;
+
+export const StyledNotificationButtons = styled.div`
+  display: flex;
+  gap: 1rem;
+`;
+
 export const StyledButtonContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -55,8 +85,8 @@ export const StyledButtonContainer = styled.div`
     justify-content: center;
     align-items: center;
     gap: 1rem;
-  } 
-  
+  }
+
   @media screen and (max-width: 430px) {
     flex-direction: column-reverse;
     gap: 1.5rem;
@@ -70,11 +100,9 @@ export const StyledButtonContainer = styled.div`
     justify-content: center;
     flex-direction: row-reverse;
     gap: 1rem;
-
   }
 
   @media screen and (min-width: 576px) {
     justify-content: space-between;
   }
-
 `;

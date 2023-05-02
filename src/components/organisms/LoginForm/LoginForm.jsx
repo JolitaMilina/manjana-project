@@ -70,7 +70,6 @@ const LoginForm = ({ onClose, toggleForm }) => {
         if (user.password === login.password) {
           loginFunction(user);
           onClose();
-          console.log(`Logged in as ${user.email}`);
         } else {
           setPasswordError('Your password is incorrect');
         }
